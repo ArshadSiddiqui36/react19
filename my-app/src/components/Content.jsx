@@ -1,11 +1,18 @@
 
-const Content = () => {
+export default function Content () {
   return (
       <div>
-          <h1>This is the Content Component</h1>
-          <p>Here is some content inside the box.</p>
+          <h2>This is the Content Component</h2>
       </div>
   );
 };
 
-export default Content;
+// const Content = () => {
+//   return (
+//       <div>
+//           <h2>This is the Content Component</h2>
+//       </div>
+//   );
+// };
+
+// export default Content;

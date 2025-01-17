@@ -4,4 +4,6 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     color: #1f1f1f;
+    box-shadow: 3px 3px 15px 5px rgba(255, 255, 255, 0.1);
+    box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.2);
 }

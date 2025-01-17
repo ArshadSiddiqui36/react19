@@ -35,7 +35,7 @@ function App() {
 
       <Box>
         <Content />
-        <h3>Other content inside the Box component itself below Content child component</h3>
+        <p>Other content wrapped inside the <strong>Box</strong> below child <strong>Content</strong> Component</p>
       </Box>
 
 
