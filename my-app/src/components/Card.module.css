@@ -1,0 +1,10 @@
+.cardStyle {
+    border: 1px solid #f1f1f1;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
