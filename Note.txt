@@ -10,3 +10,12 @@ https://vercel.com/arshad-siddiquis-projects/react19
 
 React 19 Lean:
 https://react.dev/learn
+
+Current Topic:
+https://react.dev/learn/adding-interactivity
+
+
+Left Topics =>
+Hooks: (Done Partially)
+Redux:
+Redux Toolkit:

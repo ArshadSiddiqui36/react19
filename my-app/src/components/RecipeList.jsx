@@ -35,7 +35,7 @@ export default function RecipeList() {
   return (
     <div style={cardStyles}>
       <h1 style={headingStyle}>Recipes</h1>
-      {recipes.map((recipe) => (
+      {recipes.length ? recipes.map((recipe) => (
         <fragment key={recipe.id} style={fragmentStyle}>
           <h2 style={subHeadingStyle}>
             {recipe.name}
@@ -46,7 +46,7 @@ export default function RecipeList() {
             ))}
           </ul>
         </fragment>
-      ))}
+      )) : <h2>Recipes list is empty 🙁.</h2>}
     </div>
   );
 }

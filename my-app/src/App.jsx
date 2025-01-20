@@ -14,6 +14,9 @@ import Profile from './components/Profile';
 // RecipeList Component
 import RecipeList from './components/RecipeList';
 
+// Scientist component
+import Scientist from './components/Scientist';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -49,7 +52,10 @@ function App() {
 
       {/* Recipe List */}
       <RecipeList />
-      
+
+      {/* Scientist component */}
+      <Scientist />
+
     </>
   )
 }
