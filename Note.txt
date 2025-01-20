@@ -1,0 +1,12 @@
+Basic Command to Run & Build the App:
+npm run dev
+npm run build
+
+Live on Vercel:
+https://react19-one.vercel.app/
+
+Vercel Project:
+https://vercel.com/arshad-siddiquis-projects/react19
+
+React 19 Lean:
+https://react.dev/learn

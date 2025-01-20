@@ -42,6 +42,8 @@ function App() {
       </Box>
 
       <Profile />
+
+      <h1>New change to see the live update</h1>
     </>
   )
 }
