@@ -8,6 +8,9 @@ import './App.css'
 import Box from './components/Box'
 import Content from './components/Content'
 
+// Profile Component
+import Profile from './components/Profile';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -38,7 +41,7 @@ function App() {
         <p>Other content wrapped inside the <strong>Box</strong> below child <strong>Content</strong> Component</p>
       </Box>
 
-
+      <Profile />
     </>
   )
 }
