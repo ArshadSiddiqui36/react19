@@ -11,6 +11,9 @@ import Content from './components/Content'
 // Profile Component
 import Profile from './components/Profile';
 
+// RecipeList Component
+import RecipeList from './components/RecipeList';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -40,10 +43,13 @@ function App() {
         <Content />
         <p>Other content wrapped inside the <strong>Box</strong> below child <strong>Content</strong> Component</p>
       </Box>
-
+      
+      {/* Profile List */}
       <Profile />
 
-      <h1>New change to see the live update</h1>
+      {/* Recipe List */}
+      <RecipeList />
+      
     </>
   )
 }
