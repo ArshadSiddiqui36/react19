@@ -4,6 +4,7 @@ const EventHandlers = () => {
     
   return (
     <>
+        <h2>Event Handler</h2>
         {/* Inline Event Handler */}
         <InlineEventsHandler />
 
