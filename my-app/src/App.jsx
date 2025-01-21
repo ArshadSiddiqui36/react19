@@ -17,6 +17,7 @@ import RecipeList from './components/RecipeList';
 // Scientist component
 import Scientist from './components/Scientist';
 import EventHandler from './components/EventHandler';
+import SculptureGallery from './components/SculptureGallery';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -59,6 +60,9 @@ function App() {
 
       {/* EventHandler Component */}
       <EventHandler />
+
+      {/* SculptureGallery Component */}
+      <SculptureGallery />
 
     </>
   )
