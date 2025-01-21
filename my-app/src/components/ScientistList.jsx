@@ -1,4 +1,4 @@
-import { getScientistImageUrl } from '../utils';
+import { getScientistImageUrl } from './utils';
 
 export default function ScientistList({ title, people }) {
 

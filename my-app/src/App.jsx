@@ -16,6 +16,7 @@ import RecipeList from './components/RecipeList';
 
 // Scientist component
 import Scientist from './components/Scientist';
+import EventHandler from './components/EventHandler';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,7 +33,7 @@ function App() {
         <button onClick={() => setCount((count) => count - 1)}>
           Decrement
         </button>
-        <span style={{padding:"8px 15px", margin:"0 5px", border:"2px solid #f1f1f1", borderRadius:"8px"}} >{count}</span>
+        <span style={{padding:"8px 15px", margin:"0 10px", border:"2px solid #f1f1f1", borderRadius:"8px"}} >{count}</span>
         <button onClick={() => setCount((count) => count + 1)}>
           Increment
         </button>
@@ -55,6 +56,9 @@ function App() {
 
       {/* Scientist component */}
       <Scientist />
+
+      {/* EventHandler Component */}
+      <EventHandler />
 
     </>
   )
