@@ -14,10 +14,10 @@ const EventHandlers = () => {
         <Main />
 
         {/* Propagation */}
-        <h3>Event Propagation - Click on Button & Wrapped Box to see the effect</h3>
+        <h3>Event Propagation - Click on Button & wrapper Box to see the effect</h3>
         <Buttons2 />
         {/* Propagation Stopping Events */}
-        <h3>Stopping Event Propagation - Click on Button & Wrapped Box to see the effect</h3>
+        <h3>Stopping Event Propagation - Click on Button & wrapper Box to see the effect</h3>
         <Buttons3 />
 
         
