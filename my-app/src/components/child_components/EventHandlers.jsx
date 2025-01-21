@@ -11,6 +11,14 @@ const EventHandlers = () => {
         <ExternalEventHandler />
         <Buttons />
         {/* <Toolbar /> */}
+        <Main />
+
+        {/* Propagation */}
+        <h3>Event Propagation - Click on Button & Wrapped Box to see the effect</h3>
+        <Buttons2 />
+        {/* Propagation Stopping Events */}
+        <h3>Stopping Event Propagation - Click on Button & Wrapped Box to see the effect</h3>
+        <Buttons3 />
 
         
     </>
@@ -135,5 +143,109 @@ function Toolbar() {
     );
 }
 // ============================================================================
+
+// Naming Event Handler Props
+// ============================================================================
+function Button2({ onSmash, children }) {
+    return (
+        <button onClick={onSmash}>
+        {children}
+        </button>
+    );
+}
+
+function Main() {
+    return (
+        <div>
+        <Button2 onSmash={() => alert('Playing!')}>
+            Play Movie
+        </Button2>
+        <Button2 onSmash={() => alert('Uploading!')}>
+            Upload Image
+        </Button2>
+        </div>
+    );
+}
+
+// ============================================================================
+// export default function App() {
+//     return (
+//       <Toolbar
+//         onPlayMovie={() => alert('Playing!')}
+//         onUploadImage={() => alert('Uploading!')}
+//       />
+//     );
+//   }
+  
+//   function Toolbar({ onPlayMovie, onUploadImage }) {
+//     return (
+//       <div>
+//         <Button onClick={onPlayMovie}>
+//           Play Movie
+//         </Button>
+//         <Button onClick={onUploadImage}>
+//           Upload Image
+//         </Button>
+//       </div>
+//     );
+//   }
+  
+//   function Button({ onClick, children }) {
+//     return (
+//       <button onClick={onClick}>
+//         {children}
+//       </button>
+//     );
+//   }
+
+// Event propagation
+// ============================================================================
+function Buttons2() {
+    return (
+      <div className="card" style={{background:"#505050", borderRadius:"8px", marginTop:"5px"}} onClick={() => {
+        alert('You clicked on the toolbar!');
+      }}>
+        <button onClick={() => alert('Playing!')}>
+          Play Movie
+        </button>
+        <button onClick={() => alert('Uploading!')}>
+          Upload Image
+        </button>
+      </div>
+    );
+  }
+
+// Stopping propagation (e.stopPropagation())
+// ============================================================================
+function Button3({ onClick, children }) {
+    return (
+        <button onClick={e => {
+        e.stopPropagation();
+        onClick();
+        }}>
+        {children}
+        </button>
+    );
+}
+  
+function Buttons3() {
+    return (
+        <div className="card" style={{background:"#505050", borderRadius:"8px", marginTop:"5px"}} onClick={() => {
+        alert('You clicked on the toolbar!');
+        }}>
+        <Button3 onClick={() => alert('Playing!')}>
+            Play Movie
+        </Button3>
+        <Button3 onClick={() => alert('Uploading!')}>
+            Upload Image
+        </Button3>
+        </div>
+    );
+}
+
+// ============================================================================
+
+
+
 
 
