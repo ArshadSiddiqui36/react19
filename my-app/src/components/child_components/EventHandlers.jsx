@@ -20,6 +20,12 @@ const EventHandlers = () => {
         <h3>Stopping Event Propagation - Click on Button & wrapper Box to see the effect</h3>
         <Buttons3 />
 
+        {/* Preventing Default Behavior */}
+        <h3>Preventing Default Behavior of Browser</h3>
+        Default Behavior : <Signup />
+        Prevented Default Behavior : <SignupPrevent />
+
+
         
     </>
   )
@@ -244,6 +250,51 @@ function Buttons3() {
 }
 
 // ============================================================================
+// {/* <div onClickCapture={() => { /* this runs first */ }}>
+//   <button onClick={e => e.stopPropagation()} />
+//   <button onClick={e => e.stopPropagation()} />
+// </div> */}
+// ===================
+// function Button({ onClick, children }) {
+//     return (
+//       <button onClick={e => {
+//         e.stopPropagation();
+//         onClick();
+//       }}>
+//         {children}
+//       </button>
+//     );
+//   }
+// ============================================================================
+
+// Preventing default behavior 
+// ============================================================================
+function Signup() {
+    return (
+        <form onSubmit={() => alert('Submitting!')}>
+        <input style={{padding:"12px", borderRadius:"8px"}}/>
+        <button>Send</button>
+        </form>
+    );
+}
+
+// Preventing
+function SignupPrevent() {
+    return (
+        <form onSubmit={e => {
+        e.preventDefault();
+        alert('Submitting!');
+        }}>
+        <input style={{padding:"12px", borderRadius:"8px"}}/>
+        <button>Send</button>
+        </form>
+    );
+}
+// ============================================================================
+// Note:
+// * e.stopPropagation() stops the event handlers attached to the tags above from firing.
+// * e.preventDefault() prevents the default browser behavior for the few events that have it.
+
 
 
 
