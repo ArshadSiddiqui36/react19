@@ -26,7 +26,7 @@ export default function EventHandler() {
 //   Sub/Child Component & Function
   function Button({ onClick, children }) {
     return (
-      <button onClick={onClick} style={{margin:"0 10px"}}>
+      <button onClick={onClick}>
         {children}
       </button>
     );

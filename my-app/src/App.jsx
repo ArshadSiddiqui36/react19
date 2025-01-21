@@ -16,8 +16,15 @@ import RecipeList from './components/RecipeList';
 
 // Scientist component
 import Scientist from './components/Scientist';
+
+// EventHandler Component
 import EventHandler from './components/EventHandler';
+
+// Sculpture Gallery Component
 import SculptureGallery from './components/SculptureGallery';
+
+// Testing Component
+import Testing from './components/Testing';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,7 +41,7 @@ function App() {
         <button onClick={() => setCount((count) => count - 1)}>
           Decrement
         </button>
-        <span style={{padding:"8px 15px", margin:"0 10px", border:"2px solid #f1f1f1", borderRadius:"8px"}} >{count}</span>
+        <span style={{padding:"8px 15px", border:"2px solid #f1f1f1", borderRadius:"8px"}} >{count}</span>
         <button onClick={() => setCount((count) => count + 1)}>
           Increment
         </button>
@@ -63,6 +70,8 @@ function App() {
 
       {/* SculptureGallery Component */}
       <SculptureGallery />
+
+      <Testing />
 
     </>
   )

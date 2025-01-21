@@ -58,7 +58,7 @@ export default function SculptureGallery() {
       <button onClick={handleMoreClick}>
         {showMore ? 'Hide' : 'Show'} Details
       </button>
-      <button onClick={handlePreviousClick} style={{margin:"0 20px"}}>
+      <button onClick={handlePreviousClick}>
         &#8249; Previous
       </button>
       <button onClick={handleNextClick}>
