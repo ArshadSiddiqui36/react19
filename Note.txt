@@ -15,10 +15,14 @@ JavaScript:
 https://javascript.info/
 
 Current Topic:
-https://react.dev/learn/responding-to-events
+https://react.dev/learn/render-and-commit
 
 
 Left Topics =>
 Hooks: (Done Partially)
 Redux:
 Redux Toolkit:
+
+React19 Thapa Technical - YouTube
+https://www.youtube.com/watch?v=4z9bvgTlxKw&list=PLwGdqUZWnOp1Rab71vx2zMF6qpwGDB2Z1
+
