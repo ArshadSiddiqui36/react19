@@ -15,7 +15,7 @@ JavaScript:
 https://javascript.info/
 
 Current Topic:
-https://react.dev/learn/render-and-commit
+https://react.dev/learn/updating-arrays-in-state
 
 
 Left Topics =>
