@@ -1,4 +1,5 @@
 import EventHandlers from "./child_components/EventHandlers";
+import MapComponent from "./MapComponent";
 
 const Testing = () => {
   return (
@@ -6,6 +7,8 @@ const Testing = () => {
         <h2 style={{marginTop:"0"}}>Testing Component</h2><hr/>
 
         <EventHandlers />
+
+        
     </div>
   )
 }

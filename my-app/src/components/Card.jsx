@@ -7,7 +7,7 @@ const Card = () => {
     const cardStyle = {
         border: "1px solid #f1f1f1",
         borderRadius: "25px",
-        padding: "10px 15px"
+        padding: "10px 15px",
     }
 
     const Style = `

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 // import DefaultCodeApp from './DefaultCodeApp'
-// import Card from './components/Card'
+import Card from './components/Card'
 
 // Box and Content Components
 import Box from './components/Box'
@@ -25,18 +25,18 @@ import SculptureGallery from './components/SculptureGallery';
 
 // Testing Component
 import Testing from './components/Testing';
+import MapComponent from './components/MapComponent';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <>  
       {/* Default or Starter Code of App Components */}
       {/* <DefaultCodeApp/> */}
 
-      {/* Card components to check ways of styling */}
-      {/* <Card /> */}
-
+      {/* <h2>Increment & Decrement - useState Hook</h2> */}
+      <h2>Increment & Decrement - useState Hook</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count - 1)}>
           Decrement
@@ -46,6 +46,10 @@ function App() {
           Increment
         </button>
       </div>
+
+      {/* Card components to check ways of styling */}
+      <h2>Card components to check ways of styling</h2>
+      <Card />
 
       {/* Box and Content components */}
       {/* <Box />
@@ -71,6 +75,10 @@ function App() {
       {/* SculptureGallery Component */}
       <SculptureGallery />
 
+      {/* Map Component */}
+      <MapComponent />
+
+      {/* Testing Component */} 
       <Testing />
 
     </>

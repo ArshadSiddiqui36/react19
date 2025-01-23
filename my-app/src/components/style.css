@@ -3,4 +3,9 @@
     border-radius: 8px;
     padding: 10px 15px;
     box-shadow: 4px 4px 6px 2px rgba(0,0,0, 0.25);
+    min-width: 280px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
