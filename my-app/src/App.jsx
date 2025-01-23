@@ -26,6 +26,8 @@ import SculptureGallery from './components/SculptureGallery';
 // Testing Component
 import Testing from './components/Testing';
 import MapComponent from './components/MapComponent';
+import MovingDot from './components/MovingDot'
+import FormComponent from './components/FormComponent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -77,6 +79,11 @@ function App() {
 
       {/* Map Component */}
       <MapComponent />
+
+      {/* MovingDot Component   */}
+      <MovingDot />
+      
+      <FormComponent />
 
       {/* Testing Component */} 
       <Testing />
