@@ -1,8 +1,9 @@
+// Updating Objects in State
 import { useState } from 'react';
 
 export default function FormComponent() {
 
-   const Style = `
+  const Style = `
     .formContainer {
         border: 1px solid #f1f1f1;
         border-radius: 8px;
@@ -26,7 +27,7 @@ export default function FormComponent() {
         border-radius: 5px;
         // border: 1px solid #ccc;
     }
-    `;
+  `;
 
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',

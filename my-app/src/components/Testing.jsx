@@ -1,5 +1,5 @@
 import EventHandlers from "./child_components/EventHandlers";
-import MapComponent from "./MapComponent";
+import ArrayComponent, {ListRemoving, ShapeEditor, CounterList, ListInserting, ListChanges, BucketList, ListAddDelete , ListAddDeleteEdit} from "./ArrayComponent";
 
 const Testing = () => {
   return (
@@ -8,7 +8,23 @@ const Testing = () => {
 
         <EventHandlers />
 
-        
+        <ArrayComponent />
+
+        <ListRemoving />
+
+        <ListAddDelete />
+
+        <ListAddDeleteEdit />
+
+        <ShapeEditor />
+
+        <CounterList />
+
+        <ListInserting />
+
+        <ListChanges />
+
+        <BucketList />
     </div>
   )
 }

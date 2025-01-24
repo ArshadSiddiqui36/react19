@@ -15,7 +15,7 @@ JavaScript:
 https://javascript.info/
 
 Current Topic:
-https://react.dev/learn/updating-arrays-in-state
+https://react.dev/learn/managing-state
 
 
 Left Topics =>
@@ -25,4 +25,17 @@ Redux Toolkit:
 
 React19 Thapa Technical - YouTube
 https://www.youtube.com/watch?v=4z9bvgTlxKw&list=PLwGdqUZWnOp1Rab71vx2zMF6qpwGDB2Z1
+
+
+
+=> Important:
+----------------------------------------------------------------------------------------
+	avoid (mutates the array)	                prefer (returns a new array)
+----------------------------------------------------------------------------------------
+adding	push, unshift	                     |  concat, [...arr] spread syntax (example)
+removing	pop, shift, splice	             |   filter, slice (example)
+replacing	splice, arr[i] = ... assignment	 |   map (example)
+sorting	reverse, sort	                     |   copy the array first (example)
+----------------------------------------------------------------------------------------
+* Alternatively, you can use Immer which lets you use methods from both columns.
 

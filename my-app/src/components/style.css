@@ -9,3 +9,28 @@
     align-items: center;
     justify-content: center;
 }
+
+ol, ul {
+    text-align: left;
+}
+
+ul.art-list {
+    margin-left: -20px; 
+    li {
+        border: 1px solid #3a3a3a;
+        border-radius: 4px;
+        margin-block: 10px;
+        padding-left: 4px;
+
+        label {
+            justify-content: flex-start;
+
+            input[type='checkbox'] {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+

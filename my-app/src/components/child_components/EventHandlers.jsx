@@ -15,19 +15,21 @@ const EventHandlers = () => {
         <Main />
 
         {/* Propagation */}
+        <div style={{border:"1px solid #f1f1f1", borderRadius:"8px", marginBlock:"20px", padding:"20px"}}>
         <h3>Event Propagation - Click on Button & wrapper Box to see the effect</h3>
         <Buttons2 />
         {/* Propagation Stopping Events */}
         <h3>Stopping Event Propagation - Click on Button & wrapper Box to see the effect</h3>
         <Buttons3 />
+        </div>
 
         {/* Preventing Default Behavior */}
+        <div style={{width:"780px", border:"1px solid #f1f1f1", borderRadius:"8px", marginBlock:"20px", paddingBlock:"20px"}}>
         <h3>Preventing Default Behavior of Browser</h3>
         Default Behavior : <Signup />
         Prevented Default Behavior : <SignupPrevent />
+        </div>
 
-
-        
     </>
   )
 }
