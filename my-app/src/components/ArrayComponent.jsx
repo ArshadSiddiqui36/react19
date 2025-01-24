@@ -249,6 +249,12 @@ export function ListInserting() {
 
   function handleClick() {
     const insertAt = 1; // Could be any index
+
+    if (name.trim() === '') {
+        alert('Name cannot be empty.');
+        return;
+    }
+
     const nextArtists = [
       // Items before the insertion point:
       ...artists.slice(0, insertAt),
@@ -509,6 +515,127 @@ export function ListAddDelete() {
 // Implemented CRUD (Create, Read, Update, Delete) operations!
 // This implementation makes the list interactive with a full set of CRUD (Create, Read, Update, Delete) operations!
 // ==================================================
+// let nextId5 = 0;
+
+// export function ListAddDeleteEdit() {
+//   const [name, setName] = useState('');
+//   const [items, setItems] = useState([]);
+//   const [editingId, setEditingId] = useState(null);
+//   const [editName, setEditName] = useState('');
+
+//   const handleAdd = (isPrepend) => {
+//     if (name.trim() === '') {
+//       alert('Name cannot be empty.');
+//       return;
+//     }
+//     const newItem = { id: nextId5++, name: name.trim() };
+//     setItems(isPrepend ? [newItem, ...items] : [...items, newItem]);
+//     setName(''); // Clear input
+//   };
+
+//   const handleDelete = (id) => {
+//     if (window.confirm('Are you sure you want to delete this item?')) {
+//       setItems(items.filter((item) => item.id !== id));
+//     }
+//   };
+
+//   const handleEdit = (id) => {
+//     const itemToEdit = items.find((item) => item.id === id);
+//     setEditingId(id);
+//     setEditName(itemToEdit.name); // Pre-fill input with current name
+//   };
+
+//   const handleSaveEdit = () => {
+//     setItems(
+//       items.map((item) =>
+//         item.id === editingId ? { ...item, name: editName.trim() } : item
+//       )
+//     );
+//     setEditingId(null);
+//     setEditName('');
+//   };
+
+//   return (
+//     <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
+//       <h2>Updating Arrays in State: Add, Edit & Delete Items - CURD</h2>
+//       <input
+//         value={name}
+//         onChange={(e) => setName(e.target.value)}
+//         placeholder="Enter item name"
+//         style={{ marginRight: "8px" }}
+//       />
+//       <button
+//         onClick={() => handleAdd(true)}
+//         disabled={!name.trim()}
+//         style={{ marginRight: "8px" }}
+//       >
+//         Prepend New Item
+//       </button>
+//       <button
+//         onClick={() => handleAdd(false)}
+//         disabled={!name.trim()}
+//       >
+//         Append New Item
+//       </button>
+//       <ol style={{ marginTop: "16px" }}>
+//         {items.map((item, index) => (
+//           <li
+//             key={item.id}
+//             style={{
+//               display: "flex",
+//               alignItems: "center",
+//               justifyContent: "space-between",
+//             }}
+//           >
+//             {editingId === item.id ? (
+//               <>
+//                 <input
+//                   value={editName}
+//                   onChange={(e) => setEditName(e.target.value)}
+//                   placeholder="Edit item name"
+//                   style={{ marginRight: "8px" }}
+//                 />
+//                 <button
+//                   onClick={handleSaveEdit}
+//                   disabled={!editName.trim()}
+//                   style={{ marginRight: "8px", color: "green" }}
+//                 >
+//                   Save
+//                 </button>
+//                 <button onClick={() => setEditingId(null)} style={{ color: "gray" }}>
+//                   Cancel
+//                 </button>
+//               </>
+//             ) : (
+//               <>
+//                 <span>
+//                   {index + 1}. &nbsp;{item.name}
+//                 </span>
+//                 <div>
+//                   <button
+//                     onClick={() => handleEdit(item.id)}
+//                     style={{ marginLeft: "8px", color: "blue" }}
+//                   >
+//                     Edit
+//                   </button>
+//                   <button
+//                     onClick={() => handleDelete(item.id)}
+//                     style={{ marginLeft: "8px", color: "red" }}
+//                   >
+//                     Delete
+//                   </button>
+//                 </div>
+//               </>
+//             )}
+//           </li>
+//         ))}
+//       </ol>
+//     </div>
+//   );
+// }
+// ==================================================
+
+// ==================================================
 let nextId5 = 0;
 
 export function ListAddDeleteEdit() {
@@ -540,6 +667,14 @@ export function ListAddDeleteEdit() {
   };
 
   const handleSaveEdit = () => {
+    if (editName.trim() === '') {
+      alert('Name cannot be empty.');
+      return;
+    }
+    if (items.find((item) => item.id === editingId)?.name === editName.trim()) {
+      alert('No changes detected.');
+      return;
+    }
     setItems(
       items.map((item) =>
         item.id === editingId ? { ...item, name: editName.trim() } : item
@@ -551,7 +686,7 @@ export function ListAddDeleteEdit() {
 
   return (
     <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
-      <h2>Updating Arrays in State: Add, Edit & Delete Items - CURD</h2>
+      <h2>Updating Arrays in State: Add, Edit & Delete Items - CRUD</h2>
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -562,12 +697,14 @@ export function ListAddDeleteEdit() {
         onClick={() => handleAdd(true)}
         disabled={!name.trim()}
         style={{ marginRight: "8px" }}
+        aria-label="Prepend New Item"
       >
         Prepend New Item
       </button>
       <button
         onClick={() => handleAdd(false)}
         disabled={!name.trim()}
+        aria-label="Append New Item"
       >
         Append New Item
       </button>
@@ -579,6 +716,7 @@ export function ListAddDeleteEdit() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
+              padding: "8px 0",
             }}
           >
             {editingId === item.id ? (
@@ -593,10 +731,486 @@ export function ListAddDeleteEdit() {
                   onClick={handleSaveEdit}
                   disabled={!editName.trim()}
                   style={{ marginRight: "8px", color: "green" }}
+                  aria-label="Save Changes"
                 >
                   Save
                 </button>
-                <button onClick={() => setEditingId(null)} style={{ color: "gray" }}>
+                <button
+                  onClick={() => setEditingId(null)}
+                  style={{ color: "gray" }}
+                  aria-label="Cancel Edit"
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                <span>
+                  {index + 1}. &nbsp;{item.name}
+                </span>
+                <div>
+                  <button
+                    onClick={() => handleEdit(item.id)}
+                    style={{ marginLeft: "8px", color: "blue" }}
+                    aria-label="Edit Item"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    style={{ marginLeft: "8px", color: "red" }}
+                    aria-label="Delete Item"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+// ==================================================
+
+// ==================================================
+// let nextId5 = 0;
+
+// export function ListAddDeleteEdit() {
+//   const [name, setName] = useState('');
+//   const [items, setItems] = useState([]);
+//   const [editingId, setEditingId] = useState(null);
+//   const [editName, setEditName] = useState('');
+
+//   const handleAdd = (isPrepend) => {
+//     if (name.trim() === '') {
+//       alert('Name cannot be empty.');
+//       return;
+//     }
+//     const newItem = { id: nextId5++, name: name.trim() };
+//     setItems(isPrepend ? [newItem, ...items] : [...items, newItem]);
+//     setName(''); // Clear input
+//   };
+
+//   const handleDelete = (id) => {
+//     if (window.confirm('Are you sure you want to delete this item?')) {
+//       setItems(items.filter((item) => item.id !== id));
+//     }
+//   };
+
+//   const handleEdit = (id) => {
+//     const itemToEdit = items.find((item) => item.id === id);
+//     setEditingId(id);
+//     setEditName(itemToEdit.name); // Pre-fill input with current name
+//   };
+
+//   const handleSaveEdit = () => {
+//     if (editName.trim() === '') {
+//       alert('Name cannot be empty.');
+//       return;
+//     }
+//     if (items.find((item) => item.id === editingId)?.name === editName.trim()) {
+//       alert('No changes detected.');
+//       return;
+//     }
+//     setItems(
+//       items.map((item) =>
+//         item.id === editingId ? { ...item, name: editName.trim() } : item
+//       )
+//     );
+//     setEditingId(null);
+//     setEditName('');
+//   };
+
+//   return (
+//     <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
+//       <h2>Updating Arrays in State: Add, Edit & Delete Items - CRUD</h2>
+//       <input
+//         value={name}
+//         onChange={(e) => setName(e.target.value)}
+//         placeholder="Enter item name"
+//         style={{ marginRight: "8px" }}
+//       />
+//       <button
+//         onClick={() => handleAdd(true)}
+//         style={{ marginRight: "8px" }}
+//         aria-label="Prepend New Item"
+//       >
+//         Prepend New Item
+//       </button>
+//       <button
+//         onClick={() => handleAdd(false)}
+//         aria-label="Append New Item"
+//       >
+//         Append New Item
+//       </button>
+//       <ol style={{ marginTop: "16px" }}>
+//         {items.map((item, index) => (
+//           <li
+//             key={item.id}
+//             style={{
+//               display: "flex",
+//               alignItems: "center",
+//               justifyContent: "space-between",
+//               padding: "8px 0",
+//             }}
+//           >
+//             {editingId === item.id ? (
+//               <>
+//                 <input
+//                   value={editName}
+//                   onChange={(e) => setEditName(e.target.value)}
+//                   placeholder="Edit item name"
+//                   style={{ marginRight: "8px" }}
+//                 />
+//                 <button
+//                   onClick={handleSaveEdit}
+//                   style={{ marginRight: "8px", color: "green" }}
+//                   aria-label="Save Changes"
+//                 >
+//                   Save
+//                 </button>
+//                 <button
+//                   onClick={() => setEditingId(null)}
+//                   style={{ color: "gray" }}
+//                   aria-label="Cancel Edit"
+//                 >
+//                   Cancel
+//                 </button>
+//               </>
+//             ) : (
+//               <>
+//                 <span>
+//                   {index + 1}. &nbsp;{item.name}
+//                 </span>
+//                 <div>
+//                   <button
+//                     onClick={() => handleEdit(item.id)}
+//                     style={{ marginLeft: "8px", color: "blue" }}
+//                     aria-label="Edit Item"
+//                   >
+//                     Edit
+//                   </button>
+//                   <button
+//                     onClick={() => handleDelete(item.id)}
+//                     style={{ marginLeft: "8px", color: "red" }}
+//                     aria-label="Delete Item"
+//                   >
+//                     Delete
+//                   </button>
+//                 </div>
+//               </>
+//             )}
+//           </li>
+//         ))}
+//       </ol>
+//     </div>
+//   );
+// }
+
+// ==================================================
+
+
+// ==================================================
+// let nextId6 = 0;
+
+// export function ListAddDeleteEditWithIndex() {
+//   const [name, setName] = useState('');
+//   const [index, setIndex] = useState(''); // New input for index
+//   const [items, setItems] = useState([]);
+//   const [editingId, setEditingId] = useState(null);
+//   const [editName, setEditName] = useState('');
+
+//   const handleAdd = (isPrepend) => {
+//     if (name.trim() === '') {
+//       alert('Name cannot be empty.');
+//       return;
+//     }
+
+//     const newItem = { id: nextId6++, name: name.trim() };
+//     const targetIndex = parseInt(index, 10);
+
+//     if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex <= items.length) {
+//       // Insert at the specified index
+//       const newItems = [...items];
+//       newItems.splice(targetIndex, 0, newItem);
+//       setItems(newItems);
+//     } else if (isPrepend) {
+//       // Prepend if no valid index is provided
+//       setItems([newItem, ...items]);
+//     } else {
+//       // Append if no valid index is provided
+//       setItems([...items, newItem]);
+//     }
+
+//     setName('');
+//     setIndex('');
+//   };
+
+//   const handleDelete = (id) => {
+//     if (window.confirm('Are you sure you want to delete this item?')) {
+//       setItems(items.filter((item) => item.id !== id));
+//     }
+//   };
+
+//   const handleEdit = (id) => {
+//     const itemToEdit = items.find((item) => item.id === id);
+//     setEditingId(id);
+//     setEditName(itemToEdit.name);
+//   };
+
+//   const handleSaveEdit = () => {
+//     if (editName.trim() === '') {
+//       alert('Name cannot be empty.');
+//       return;
+//     }
+//     setItems(
+//       items.map((item) =>
+//         item.id === editingId ? { ...item, name: editName.trim() } : item
+//       )
+//     );
+//     setEditingId(null);
+//     setEditName('');
+//   };
+
+//   return (
+//     <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
+//       <h2>Updating Arrays in State: Add, Edit, Delete & Index-Based Insertion</h2>
+//       <input
+//         value={name}
+//         onChange={(e) => setName(e.target.value)}
+//         placeholder="Enter item name"
+//         style={{ marginRight: "8px" }}
+//       />
+//       <input
+//         value={index}
+//         onChange={(e) => setIndex(e.target.value)}
+//         placeholder="Enter index (optional)"
+//         style={{ marginRight: "8px", width: "150px" }}
+//         type="number"
+//         min="0"
+//       />
+//       <button
+//         onClick={() => handleAdd(true)}
+//         style={{ marginRight: "8px" }}
+//       >
+//         Add at Index (Prepend Default)
+//       </button>
+//       <button onClick={() => handleAdd(false)}>Add at Index (Append Default)</button>
+//       <ol style={{ marginTop: "16px" }}>
+//         {items.map((item, index) => (
+//           <li
+//             key={item.id}
+//             style={{
+//               display: "flex",
+//               alignItems: "center",
+//               justifyContent: "space-between",
+//               padding: "8px 0",
+//             }}
+//           >
+//             {editingId === item.id ? (
+//               <>
+//                 <input
+//                   value={editName}
+//                   onChange={(e) => setEditName(e.target.value)}
+//                   placeholder="Edit item name"
+//                   style={{ marginRight: "8px" }}
+//                 />
+//                 <button
+//                   onClick={handleSaveEdit}
+//                   style={{ marginRight: "8px", color: "green" }}
+//                 >
+//                   Save
+//                 </button>
+//                 <button
+//                   onClick={() => setEditingId(null)}
+//                   style={{ color: "gray" }}
+//                 >
+//                   Cancel
+//                 </button>
+//               </>
+//             ) : (
+//               <>
+//                 <span>
+//                   {index + 1}. &nbsp;{item.name}
+//                 </span>
+//                 <div>
+//                   <button
+//                     onClick={() => handleEdit(item.id)}
+//                     style={{ marginLeft: "8px", color: "blue" }}
+//                   >
+//                     Edit
+//                   </button>
+//                   <button
+//                     onClick={() => handleDelete(item.id)}
+//                     style={{ marginLeft: "8px", color: "red" }}
+//                   >
+//                     Delete
+//                   </button>
+//                 </div>
+//               </>
+//             )}
+//           </li>
+//         ))}
+//       </ol>
+//     </div>
+//   );
+// }
+
+// ==================================================
+
+// ==================================================
+let nextId6 = 0;
+
+export function ListAddDeleteEditWithIndex() {
+  const [name, setName] = useState('');
+  const [index, setIndex] = useState(''); // New input for index during add
+  const [items, setItems] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [editName, setEditName] = useState('');
+  const [editIndex, setEditIndex] = useState(''); // Input for index during edit
+
+  const handleAdd = (isPrepend) => {
+    if (name.trim() === '') {
+      alert('Name cannot be empty.');
+      return;
+    }
+
+    const newItem = { id: nextId6++, name: name.trim() };
+    const targetIndex = parseInt(index, 10);
+
+    if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex <= items.length) {
+      // Insert at the specified index
+      const newItems = [...items];
+      newItems.splice(targetIndex, 0, newItem);
+      setItems(newItems);
+    } else if (isPrepend) {
+      // Prepend if no valid index is provided
+      setItems([newItem, ...items]);
+    } else {
+      // Append if no valid index is provided
+      setItems([...items, newItem]);
+    }
+
+    setName('');
+    setIndex('');
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      setItems(items.filter((item) => item.id !== id));
+    }
+  };
+
+  const handleEdit = (id) => {
+    const itemToEdit = items.find((item) => item.id === id);
+    setEditingId(id);
+    setEditName(itemToEdit.name);
+    setEditIndex(items.indexOf(itemToEdit)); // Pre-fill with current index
+  };
+
+  const handleSaveEdit = () => {
+    if (editName.trim() === '') {
+      alert('Name cannot be empty.');
+      return;
+    }
+
+    const targetIndex = parseInt(editIndex, 10);
+    const currentIndex = items.findIndex((item) => item.id === editingId);
+
+    if (
+      isNaN(targetIndex) ||
+      targetIndex < 0 ||
+      targetIndex >= items.length ||
+      targetIndex === currentIndex
+    ) {
+      // If the index is invalid or unchanged, only update the name
+      setItems(
+        items.map((item) =>
+          item.id === editingId ? { ...item, name: editName.trim() } : item
+        )
+      );
+    } else {
+      // Handle index change: remove from current index and insert at new index
+      const updatedItems = [...items];
+      const [updatedItem] = updatedItems.splice(currentIndex, 1);
+      updatedItem.name = editName.trim(); // Update the name
+      updatedItems.splice(targetIndex, 0, updatedItem); // Insert at new index
+      setItems(updatedItems);
+    }
+
+    setEditingId(null);
+    setEditName('');
+    setEditIndex('');
+  };
+
+  return (
+    <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
+      <h2>Updating Arrays in State: Add, Edit (Name & Index), Delete</h2>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter item name"
+        style={{ marginRight: "8px" }}
+      />
+      <input
+        value={index}
+        onChange={(e) => setIndex(e.target.value)}
+        placeholder="Enter index (optional)"
+        style={{ marginRight: "8px", width: "150px" }}
+        type="number"
+        min="0"
+      />
+      <button
+        onClick={() => handleAdd(true)}
+        style={{ marginRight: "8px" }}
+      >
+        Add at Index (Prepend Default)
+      </button>
+      <button onClick={() => handleAdd(false)}>Add at Index (Append Default)</button>
+      <ol style={{ marginTop: "16px" }}>
+        {items.map((item, index) => (
+          <li
+            key={item.id}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "8px 0",
+            }}
+          >
+            {editingId === item.id ? (
+              <>
+                <input
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  placeholder="Edit item name"
+                  style={{ marginRight: "8px" }}
+                />
+                <input
+                  value={editIndex}
+                  onChange={(e) => setEditIndex(e.target.value)}
+                  placeholder="Edit index"
+                  style={{ marginRight: "8px", width: "150px" }}
+                  type="number"
+                  min="0"
+                />
+                <button
+                  onClick={handleSaveEdit}
+                  style={{ marginRight: "8px", color: "green" }}
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingId(null);
+                    setEditName('');
+                    setEditIndex('');
+                  }}
+                  style={{ color: "gray" }}
+                >
                   Cancel
                 </button>
               </>
@@ -627,4 +1241,200 @@ export function ListAddDeleteEdit() {
     </div>
   );
 }
+
+// ==================================================
+
+// ==================================================
+
+let nextId7 = 0;
+
+export function ListAddDeleteEditFilter() {
+  const [name, setName] = useState('');
+  const [index, setIndex] = useState(''); // Input for index during add
+  const [filter, setFilter] = useState(''); // Filter input
+  const [items, setItems] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [editName, setEditName] = useState('');
+  const [editIndex, setEditIndex] = useState(''); // Input for index during edit
+
+  const handleAdd = (isPrepend) => {
+    if (name.trim() === '') {
+      alert('Name cannot be empty.');
+      return;
+    }
+
+    const newItem = { id: nextId7++, name: name.trim() };
+    const targetIndex = parseInt(index, 10);
+
+    if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex <= items.length) {
+      // Insert at the specified index
+      const newItems = [...items];
+      newItems.splice(targetIndex, 0, newItem);
+      setItems(newItems);
+    } else if (isPrepend) {
+      setItems([newItem, ...items]); // Prepend if no valid index is provided
+    } else {
+      setItems([...items, newItem]); // Append if no valid index is provided
+    }
+
+    setName('');
+    setIndex('');
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      setItems(items.filter((item) => item.id !== id));
+    }
+  };
+
+  const handleEdit = (id) => {
+    const itemToEdit = items.find((item) => item.id === id);
+    setEditingId(id);
+    setEditName(itemToEdit.name);
+    setEditIndex(items.indexOf(itemToEdit)); // Pre-fill with current index
+  };
+
+  const handleSaveEdit = () => {
+    if (editName.trim() === '') {
+      alert('Name cannot be empty.');
+      return;
+    }
+
+    const targetIndex = parseInt(editIndex, 10);
+    const currentIndex = items.findIndex((item) => item.id === editingId);
+
+    if (
+      isNaN(targetIndex) ||
+      targetIndex < 0 ||
+      targetIndex >= items.length ||
+      targetIndex === currentIndex
+    ) {
+      // Only update the name if index is invalid or unchanged
+      setItems(
+        items.map((item) =>
+          item.id === editingId ? { ...item, name: editName.trim() } : item
+        )
+      );
+    } else {
+      // Handle index change
+      const updatedItems = [...items];
+      const [updatedItem] = updatedItems.splice(currentIndex, 1);
+      updatedItem.name = editName.trim();
+      updatedItems.splice(targetIndex, 0, updatedItem);
+      setItems(updatedItems);
+    }
+
+    setEditingId(null);
+    setEditName('');
+    setEditIndex('');
+  };
+
+  // Filtered items based on the filter input
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  return (
+    <div style={{ width: "750px", border: "1px solid #f1f1f1", borderRadius: "8px", marginBlock: "20px", padding: "16px" }}>
+      <h2>Updating Arrays in State: Add, Edit, Delete, and Filter Items</h2>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter item name"
+        style={{ marginRight: "8px" }}
+      />
+      <input
+        value={index}
+        onChange={(e) => setIndex(e.target.value)}
+        placeholder="Enter index (optional)"
+        style={{ marginRight: "8px", width: "150px" }}
+        type="number"
+        min="0"
+      /><br/>
+      <button
+        onClick={() => handleAdd(true)}
+        style={{ marginRight: "8px" }}
+      >
+        Add at Index (Prepend Default)
+      </button>
+      <button onClick={() => handleAdd(false)}>Add at Index (Append Default)</button>
+      <br />
+      <input
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+        placeholder="Filter items by name"
+        style={{ marginTop: "16px", marginBottom: "16px", width: "300px" }}
+      />
+      <ol style={{ marginTop: "16px" }}>
+        {filteredItems.map((item, index) => (
+          <li
+            key={item.id}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "8px 0",
+            }}
+          >
+            {editingId === item.id ? (
+              <>
+                <input
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  placeholder="Edit item name"
+                  style={{ marginRight: "8px" }}
+                />
+                <input
+                  value={editIndex}
+                  onChange={(e) => setEditIndex(e.target.value)}
+                  placeholder="Edit index"
+                  style={{ marginRight: "8px", width: "150px" }}
+                  type="number"
+                  min="0"
+                />
+                <button
+                  onClick={handleSaveEdit}
+                  style={{ marginRight: "8px", color: "green" }}
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingId(null);
+                    setEditName('');
+                    setEditIndex('');
+                  }}
+                  style={{ color: "gray" }}
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                <span>
+                  {index + 1}. &nbsp;{item.name}
+                </span>
+                <div>
+                  <button
+                    onClick={() => handleEdit(item.id)}
+                    style={{ marginLeft: "8px", color: "blue" }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    style={{ marginLeft: "8px", color: "red" }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 // ==================================================

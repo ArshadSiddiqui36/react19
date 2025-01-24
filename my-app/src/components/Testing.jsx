@@ -1,5 +1,5 @@
 import EventHandlers from "./child_components/EventHandlers";
-import ArrayComponent, {ListRemoving, ShapeEditor, CounterList, ListInserting, ListChanges, BucketList, ListAddDelete , ListAddDeleteEdit} from "./ArrayComponent";
+import ArrayComponent, {ListRemoving, ShapeEditor, CounterList, ListInserting, ListChanges, BucketList, ListAddDelete , ListAddDeleteEdit, ListAddDeleteEditWithIndex, ListAddDeleteEditFilter} from "./ArrayComponent";
 
 const Testing = () => {
   return (
@@ -15,6 +15,10 @@ const Testing = () => {
         <ListAddDelete />
 
         <ListAddDeleteEdit />
+
+        <ListAddDeleteEditWithIndex />
+
+        <ListAddDeleteEditFilter />
 
         <ShapeEditor />
 
