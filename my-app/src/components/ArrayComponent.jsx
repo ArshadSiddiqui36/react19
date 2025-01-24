@@ -506,7 +506,8 @@ export function ListAddDelete() {
 }
 // ==================================================
 
-// Implemented CRUD Operations
+// Implemented CRUD (Create, Read, Update, Delete) operations!
+// This implementation makes the list interactive with a full set of CRUD (Create, Read, Update, Delete) operations!
 // ==================================================
 let nextId5 = 0;
 
