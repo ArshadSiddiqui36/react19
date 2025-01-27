@@ -1197,6 +1197,7 @@ export function ListAddDeleteEditWithIndex() {
                   type="number"
                   min="0"
                 />
+                <br/>
                 <button
                   onClick={handleSaveEdit}
                   style={{ marginRight: "8px", color: "green" }}
@@ -1350,7 +1351,9 @@ export function ListAddDeleteEditFilter() {
         style={{ marginRight: "8px", width: "150px" }}
         type="number"
         min="0"
-      /><br/>
+      />
+
+      <br/>
       <button
         onClick={() => handleAdd(true)}
         style={{ marginRight: "8px" }}

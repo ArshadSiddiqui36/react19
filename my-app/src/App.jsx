@@ -23,11 +23,15 @@ import EventHandler from './components/EventHandler';
 // Sculpture Gallery Component
 import SculptureGallery from './components/SculptureGallery';
 
-// Testing Component
-import Testing from './components/Testing';
+// Other Components
 import MapComponent from './components/MapComponent';
 import MovingDot from './components/MovingDot'
 import FormComponent from './components/FormComponent'
+import ImportantTopics from './components/ImportantTopics';
+import ManagingState from './components/ManagingState';
+
+// Testing Component
+import Testing from './components/Testing';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +40,9 @@ function App() {
     <>  
       {/* Default or Starter Code of App Components */}
       {/* <DefaultCodeApp/> */}
+
+      {/* Testing Component */} 
+      <Testing />
 
       {/* <h2>Increment & Decrement - useState Hook</h2> */}
       <h2>Increment & Decrement - useState Hook</h2>
@@ -83,12 +90,15 @@ function App() {
       {/* MovingDot Component   */}
       <MovingDot />
       
+      {/* From Component */}
       <FormComponent />
 
-      {/* Testing Component */} 
-      <Testing />
+      {/* Important Topics */}
+      <ImportantTopics />
 
-      
+      {/* Managing State Component */}
+      <ManagingState />
+
 
     </>
   )
