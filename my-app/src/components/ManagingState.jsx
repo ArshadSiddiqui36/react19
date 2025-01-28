@@ -4,6 +4,7 @@ import ManageStateComponents, {Accordion, CounterApp, ManageStateForm, ManageSta
 import ManageStateUseReducer, { Counter, TaskApp } from "./child_components/ManageStateUseReducer";
 import App from "./child_components/context-component/App";
 import App2 from "./child_components/context-component/App2";
+import TaskApp2 from "./child_components/context-reducer/TaskApp2";
 
 const ManagingSate = () => {
   return (
@@ -42,6 +43,12 @@ const ManagingSate = () => {
         <h2>createContext, useContext</h2>
             <App2 />
         </div>
+
+        <div style={{ width:"740px",display:"block", textAlign:"left", marginBlock:"20px"}} className="box">
+        <h2>Reducer & Context - useReducer, createContext, useContext</h2><hr/>
+            <TaskApp2 />
+        </div>
+
 
         
     </div>
