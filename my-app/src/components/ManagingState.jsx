@@ -1,10 +1,10 @@
 // Import
-import ManageState, { FeedbackForm, Menu, TravelPlan } from "./child_components/ManageState"
-import ManageStateComponents, {Accordion, CounterApp, ManageStateForm, ManageStateForm2, Messenger } from "./child_components/ManageStateComponents"
-import ManageStateUseReducer, { Counter, TaskApp } from "./child_components/ManageStateUseReducer";
-import App from "./child_components/context-component/App";
-import App2 from "./child_components/context-component/App2";
-import TaskApp2 from "./child_components/context-reducer/TaskApp2";
+import ManageState, { FeedbackForm, Menu, TravelPlan } from "./child-components/ManageState"
+import ManageStateComponents, {Accordion, CounterApp, ManageStateForm, ManageStateForm2, Messenger } from "./child-components/ManageStateComponents"
+import ManageStateUseReducer, { Counter, TaskApp } from "./child-components/ManageStateUseReducer";
+import App from "./child-components/context-component/App";
+import App2 from "./child-components/context-component/App2";
+import TaskApp2 from "./child-components/context-reducer/TaskApp2";
 
 const ManagingSate = () => {
   return (
@@ -48,8 +48,6 @@ const ManagingSate = () => {
         <h2>Reducer & Context - useReducer, createContext, useContext</h2><hr/>
             <TaskApp2 />
         </div>
-
-
         
     </div>
   )

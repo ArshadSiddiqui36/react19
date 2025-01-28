@@ -32,6 +32,7 @@ import ManagingState from './components/ManagingState';
 
 // Testing Component
 import Testing from './components/Testing';
+import EscapeHatches from './components/EscapeHatches'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -98,6 +99,9 @@ function App() {
 
       {/* Managing State Component */}
       <ManagingState />
+      
+      {/* EscapeHatches Component */}
+      <EscapeHatches/>
 
 
     </>

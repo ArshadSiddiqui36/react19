@@ -1,4 +1,4 @@
-import EventHandlers from "./child_components/EventHandlers";
+import EventHandlers from "./child-components/EventHandlers";
 import ArrayComponent, {ListRemoving, ShapeEditor, CounterList, ListInserting, ListChanges, BucketList, ListAddDelete , ListAddDeleteEdit, ListAddDeleteEditWithIndex, ListAddDeleteEditFilter} from "./ArrayComponent";
 
 const Testing = () => {
