@@ -1,3 +1,4 @@
+====================| Git Basic Command |====================
 > git init
 > git status
 > git add . | git add <file>
@@ -6,3 +7,51 @@
 > git pull -u origin master
 > git clone <url>
 
+====================| Git Branch Command |====================
+=>List all branches:
+1.To see a list of all branches (both local and remote), use:
+> git branch
+* This will show you all the local branches in your repository,
+  with the current branch highlighted in green (or with an asterisk * next to it).
+
+====================| List remote branches |====================
+1.To see branches on the remote repository, use:
+> git branch -r
+
+====================| List both local and remote branches |====================
+1.To list both local and remote branches, use:
+> git branch -a
+
+====================| Create a new branch |====================
+1.To create a new branch (but not switch to it), use:
+> git branch new-branch-name
+
+====================| Delete a branch |====================
+1.To delete a branch that you no longer need (make sure you’re not on the branch you want to delete), use:
+> git branch -d branch-name
+
+2.If the branch has unmerged changes and you still want to delete it, use:
+> git branch -D branch-name
+
+====================| Renaming the Current Branch |====================
+1.If you're on the branch you want to rename, run the following command:
+> git branch -m new-branch-name
+
+2. Renaming a Branch that You’re Not Currently On:
+> git branch -m old-branch-name new-branch-name
+
+====================| Push the Renamed Branch (If Already Pushed to Remote) |====================
+1.Push the renamed branch to the remote repository:
+> git push origin new-branch-name
+
+2.If the old branch was already pushed to the remote, you’ll need to delete it from the remote:
+> git push origin --delete old-branch-name
+
+3.To set the upstream for your new branch (so that git push works without specifying the branch name), run:
+> git push --set-upstream origin new-branch-name
+
+
+
+
+
+====================| Title |====================
