@@ -1,4 +1,4 @@
-import CounterUseRef, { AppCatFriends, AppVideoPlayer, CatFriends, FormUseRef, Stopwatch } from "./child-components/escape-hatches/UseRef";
+import CounterUseRef, { AppCatFriends,AppCatFriends2, AppVideoPlayer, CatFriends, FormUseRef, Stopwatch } from "./child-components/escape-hatches/UseRef";
 import { AppChatRoom, AppChatRoom1, } from "./child-components/escape-hatches/UseEffect";
 import ChatApp from "./child-components/escape-hatches/chat-app/ChatApp";
 
@@ -14,6 +14,7 @@ const EscapeHatches = () => {
             <AppVideoPlayer/> <hr/>
             <CatFriends/><hr/>
             <AppCatFriends />
+            <AppCatFriends2 />
             
             {/* useEffect */}
             <h2>useEffect Examples</h2>

@@ -16,6 +16,7 @@ https://javascript.info/
 
 Current Topic:
 https://react.dev/learn/escape-hatches
+https://react.dev/learn/synchronizing-with-effects
 
 
 Left Topics =>
