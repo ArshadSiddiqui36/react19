@@ -7,6 +7,11 @@
 > git pull -u origin master
 > git clone <url>
 
+====================| Git Config Coomands (Author identity) |====================
+> git config --global user.email "you@example.com"
+> git config --global user.name "Your Name"
+* Omit --global to set the identity only in this repository.
+
 ====================| Git Branch Command |====================
 =>List all branches:
 1.To see a list of all branches (both local and remote), use:
@@ -55,3 +60,5 @@
 
 
 ====================| Title |====================
+
+
