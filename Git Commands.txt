@@ -3,8 +3,10 @@
 > git status
 > git add . | git add <file>
 > git commit -m "first commit"
+> git commit -a -m "Your commit message here"
 > git push -u origin master
 > git pull -u origin master
+> git push
 > git clone <url>
 
 ====================| Git Config Coomands (Author identity) |====================
