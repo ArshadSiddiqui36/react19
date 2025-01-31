@@ -3,11 +3,12 @@
 > git status
 > git add . | git add <file>
 > git commit -m "first commit"
-> git commit -a -m "Your commit message here"
 > git push -u origin master
 > git pull -u origin master
-> git push
 > git clone <url>
+
+> git commit -a -m "Your commit message here"
+> git push
 
 ====================| Git Config Coomands (Author identity) |====================
 > git config --global user.email "you@example.com"
