@@ -33,6 +33,7 @@ import ManagingState from './components/ManagingState';
 // Testing Component
 import Testing from './components/Testing';
 import EscapeHatches from './components/EscapeHatches'
+import ToastNotification from './components/ToastNotification'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -102,6 +103,9 @@ function App() {
       
       {/* EscapeHatches Component */}
       <EscapeHatches/>
+
+      {/* ToastNotification */}
+      <ToastNotification/>
 
 
     </>
