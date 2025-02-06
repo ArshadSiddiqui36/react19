@@ -34,6 +34,14 @@
 1.To create a new branch (but not switch to it), use:
 > git branch new-branch-name
 
+====================| Switch to Another Branch |====================
+1. To switch to an existing branch
+> git checkout branch_name
+* Or, using the newer syntax
+> git switch branch_name
+
+
+
 ====================| Delete a branch |====================
 1.To delete a branch that you no longer need (make sure you’re not on the branch you want to delete), use:
 > git branch -d branch-name
