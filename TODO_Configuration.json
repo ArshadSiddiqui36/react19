@@ -1,0 +1,799 @@
+// {
+//     // Sets the color theme for VS Code
+//     "workbench.colorTheme": "Visual Studio Dark",
+
+//     // Enables or disables the Todo Highlight extension
+//     "todohighlight.isEnable": true,
+
+//     // Ensures keyword matching is case-sensitive (e.g., "DEBUG" won't match "debug")
+//     "todohighlight.isCaseSensitive": true,
+
+//     // Default styling for unspecified keywords
+//     "todohighlight.defaultStyle": {
+//         "color": "#FFF",
+//         "backgroundColor": "#FF5733",
+//         "bold": true,
+//         "border": "1px solid #1f1f1f"
+//     },
+
+//     "todohighlight.keywords": [
+//         // These will use the default style
+//         "New",
+//         "Start",
+//         "End",
+
+//         // Custom styled keywords
+//         {
+//             "text": "DEBUG:",
+//             "color": "#FFA500",
+//             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+//             "bold": true
+//         },
+//         {
+//             "text": "REVIEW:",
+//             "color": "#00FF00",
+//             "backgroundColor": "rgba(0, 255, 0, 0.3)",
+//             "bold": true
+//         },
+//         {
+//             "text": "|NOTE|",
+//             "color": "lightblue",
+//             "backgroundColor": "rgba(0, 0, 255, 0.3)",
+//             "bold": true
+//         },
+//         {
+//             "text": "IMPORTANT",
+//             "color": "red",
+//             "backgroundColor": "rgba(255, 0, 0, 0.3)",
+//             "bold": true
+//         },
+//         {
+//             "text": "PRIORITY",
+//             "color": "orange",
+//             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+//             "bold": true
+//         },
+//         {
+//             "text": " URGENT ",
+//             "color": "#fff",
+//             "backgroundColor": "#ff0000",
+//             "bold": true
+//         },
+//         {
+//             "text": " HIGH ",
+//             "color": "black",
+//             "backgroundColor": "yellow",
+//             "bold": true
+//         },
+//         {
+//             "text": " MEDIUM ",
+//             "color": "#fff",
+//             "backgroundColor": "#0000ff",
+//             "bold": true
+//         },
+//         {
+//             "text": " NORMAL ",
+//             "color": "#fff",
+//             "backgroundColor": "#0000ff",
+//             "bold": true
+//         },
+//         {
+//             "text": " LOW ",
+//             "color": "#fff",
+//             "backgroundColor": "grey",
+//             "bold": true
+//         },
+//         {
+//             "text": "##########Code360 Start",
+//             "color": "#fff",
+//             "backgroundColor": "green",
+//             "bold": true
+//         },
+//         {
+//             "text": "##########Code360 End",
+//             "color": "#fff",
+//             "backgroundColor": "#ff5733",
+//             "bold": true
+//         },
+//         {
+//             "text": " Link ",
+//             "color": "#f1f1f1",
+//             "backgroundColor": "#0900be",
+//             "bold": true,
+//             "border": "1px solid #000293",
+//             "borderRadius": "5px"
+//             // ⚠️ Note: Sometimes "border" and "borderRadius" do not work together in this extension.
+//             // If both are set, Only "border" will be applied, and "borderRadius" will be ignored.
+//         }
+//     ],
+
+//     // Pattern-based highlighting (using regex)
+//     // "todohighlight.keywordsPattern": "Task\\s\\d+|Issue\\s\\d+|Bug\\s\\d+",
+
+//     // File types where highlighting should be applied
+//     "todohighlight.include": [
+//         "**/*.js",     // JavaScript files
+//         "**/*.jsx",    // React JS files
+//         "**/*.ts",     // TypeScript files
+//         "**/*.tsx",    // React TypeScript files
+//         "**/*.html",   // HTML files
+//         "**/*.php",    // PHP files
+//         "**/*.css",    // CSS files
+//         "**/*.scss",   // SCSS files
+//         "**/*.txt",    // Plain text files
+//         "**/Note*",    // Any file starting with "Note" (e.g., Note.txt)
+//         "**/*.md"      // Markdown files (e.g., README.md)
+//     ],
+
+//     // Exclude certain folders from being scanned for highlights
+//     "todohighlight.exclude": [
+//         "**/node_modules/**",      // Ignore dependencies
+//         "**/bower_components/**",  // Ignore frontend package manager files
+//         "**/dist/**",              // Ignore build output
+//         "**/build/**",             // Ignore compiled files
+//         "**/.vscode/**",           // Ignore VS Code config files
+//         "**/.github/**",           // Ignore GitHub workflows
+//         "**/_output/**",           // Ignore generated output
+//         "**/*.min.*",              // Ignore minified files
+//         "**/*.map",                // Ignore source map files
+//         "**/.next/**"              // Ignore Next.js build output
+//     ],
+
+//     // Maximum number of files to scan for highlighting (increase if needed)
+//     "todohighlight.maxFilesForSearch": 5120,
+
+//     // If set to true, enables highlighting in the file path (URI) as well
+//     "todohighlight.toggleURI": false,
+// }
+
+
+// // =============================================================
+// // {
+// //     "todohighlight.isEnable": true,
+// //     "todohighlight.isCaseSensitive": true,
+// //     "todohighlight.keywords": [
+// //         "DEBUG:",
+// //         "REVIEW:",
+// //         {
+// //             "text": "NOTE:",
+// //             "color": "#ff0000",
+// //             "backgroundColor": "yellow",
+// //             "overviewRulerColor": "grey"
+// //         },
+// //         {
+// //             "text": "HACK:",
+// //             "color": "#000",
+// //             "isWholeLine": false,
+// //         },
+// //         {
+// //             "text": "TODO:",
+// //             "color": "red",
+// //             "border": "1px solid red",
+// //             "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
+// //             "backgroundColor": "rgba(0,0,0,.2)",
+// //             //other styling properties goes here ... 
+// //         }
+// //     ],
+// //     "todohighlight.keywordsPattern": "TODO:|FIXME:|\\(([^)]+)\\)", //highlight `TODO:`,`FIXME:` or content between parentheses
+// //     "todohighlight.defaultStyle": {
+// //         "color": "red",
+// //         "backgroundColor": "#ffab00",
+// //         "overviewRulerColor": "#ffab00",
+// //         "cursor": "pointer",
+// //         "border": "1px solid #eee",
+// //         "borderRadius": "2px",
+// //         "isWholeLine": true,
+// //         //other styling properties goes here ... 
+// //     },
+// //     "todohighlight.include": [
+// //         "**/*.js",
+// //         "**/*.jsx",
+// //         "**/*.ts",
+// //         "**/*.tsx",
+// //         "**/*.html",
+// //         "**/*.php",
+// //         "**/*.css",
+// //         "**/*.scss"
+// //     ],
+// //     "todohighlight.exclude": [
+// //         "**/node_modules/**",
+// //         "**/bower_components/**",
+// //         "**/dist/**",
+// //         "**/build/**",
+// //         "**/.vscode/**",
+// //         "**/.github/**",
+// //         "**/_output/**",
+// //         "**/*.min.*",
+// //         "**/*.map",
+// //         "**/.next/**"
+// //     ],
+// //     "todohighlight.maxFilesForSearch": 5120,
+// //     "todohighlight.toggleURI": false
+// // }
+
+// // ======================================================/
+
+// // "todohighlight.defaultStyle": {
+// //     "border": "1px solid gray",
+// //     "borderRadius": "4px",
+// //     "backgroundColor": "transparent",
+// //     "color": "white",
+// //     "fontWeight": "bold"
+// // },
+// // "todohighlight.customKeywords": {
+// //     "TODO": {
+// //         "backgroundColor": "#FFEB3B",
+// //         "color": "#000",
+// //         "fontWeight": "bold"
+// //     },
+// //     "FIXME": {
+// //         "backgroundColor": "#FF5722",
+// //         "color": "#FFF",
+// //         "fontStyle": "italic"
+// //     },
+// //     "BUG": {
+// //         "backgroundColor": "#D32F2F",
+// //         "color": "#FFF",
+// //         "border": "2px solid black"
+// //     },
+// //     "ERROR": {
+// //         "backgroundColor": "#F44336",
+// //         "color": "#FFF",
+// //         "textDecoration": "underline"
+// //     },
+// //     "NOTE": {
+// //         "backgroundColor": "#4CAF50",
+// //         "color": "#FFF"
+// //     }
+// // },
+// // "todohighlight.customPatterns": {
+// //     "Task\\s\\d+": {
+// //         "backgroundColor": "#2196F3",
+// //         "color": "#FFF",
+// //         "border": "2px solid #000"
+// //     },
+// //     "Issue\\s\\d+": {
+// //         "backgroundColor": "#9C27B0",
+// //         "color": "#FFF",
+// //         "border": "2px solid #FFF"
+// //     }
+// // }
+
+// // 🎨 Example: How They Will Look
+// // =================================================================
+// // Keyword	    Background	        Text Color	    Extra Styling
+// // TODO	        Yellow (#FFEB3B)	Black (#000)	Bold
+// // FIXME	    Orange (#FF5722)	White (#FFF)	Italic
+// // BUG	        Dark Red (#D32F2F)	White (#FFF)	2px Black Border
+// // ERROR	    Red (#F44336)   	White (#FFF)	Underlined
+// // NOTE	        Green (#4CAF50)	    White (#FFF)	-
+// // Task 20	    Blue (#2196F3)	    White (#FFF)	2px Black Border
+// // Issue 5	    Purple (#9C27B0)	White (#FFF)	2px White Border
+// // ==================================================================
+
+
+// // {
+// //     "workbench.colorTheme": "Visual Studio Dark",
+
+// //     // Default Style for all highlights
+// //     "todohighlight.defaultStyle": {
+// //         "border": "1px solid gray",
+// //         "borderRadius": "4px",
+// //         "backgroundColor": "transparent",
+// //         "color": "white",
+// //         "fontWeight": "bold"
+// //     },
+
+// //     // Custom Keywords (Exact Text Match)
+// //     "todohighlight.customKeywords": {
+// //         "DEBUG:": {
+// //             "color": "#FFA500",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "REVIEW:": {
+// //             "color": "#00FF00",
+// //             "backgroundColor": "rgba(0, 255, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "NOTE": {
+// //             "color": "lightblue",
+// //             "backgroundColor": "rgba(0, 0, 255, 0.3)",
+// //             "bold": true
+// //         },
+// //         "IMPORTANT": {
+// //             "color": "red",
+// //             "backgroundColor": "rgba(255, 0, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "PRIORITY": {
+// //             "color": "orange",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "URGENT": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff0000",
+// //             "bold": true
+// //         },
+// //         "HIGH": {
+// //             "color": "black",
+// //             "backgroundColor": "yellow",
+// //             "bold": true
+// //         },
+// //         "MEDIUM": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         "NORMAL": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         "LOW": {
+// //             "color": "#fff",
+// //             "backgroundColor": "grey",
+// //             "bold": true
+// //         },
+// //         "##########Code360 Start": {
+// //             "color": "#fff",
+// //             "backgroundColor": "green",
+// //             "bold": true
+// //         },
+// //         "##########Code360 End": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff5733",
+// //             "bold": true
+// //         },
+// //         "Link": {
+// //             "color": "#f1f1f1",
+// //             "backgroundColor": "#0900be",
+// //             "bold": true,
+// //             "borderRadius": "5px"
+// //         }
+// //     },
+
+// //     // Custom Patterns (Regex Match)
+// //     "todohighlight.customPatterns": {
+// //         "Task\\s\\d+": {
+// //             "backgroundColor": "#2196F3",
+// //             "color": "#FFF",
+// //             "border": "2px solid #000",
+// //             "bold": true
+// //         },
+// //         "Issue\\s\\d+": {
+// //             "backgroundColor": "#9C27B0",
+// //             "color": "#FFF",
+// //             "border": "2px solid #FFF",
+// //             "bold": true
+// //         },
+// //         "Bug\\s\\d+": {
+// //             "backgroundColor": "#FF0000",
+// //             "color": "#FFF",
+// //             "border": "2px solid black",
+// //             "bold": true
+// //         }
+// //     },
+
+// //     // File types where highlights should be applied
+// //     "todohighlight.include": [
+// //         "**/*.js",
+// //         "**/*.jsx",
+// //         "**/*.ts",
+// //         "**/*.tsx",
+// //         "**/*.html",
+// //         "**/*.php",
+// //         "**/*.css",
+// //         "**/*.scss",
+// //         "**/*.txt",      // Includes .txt files
+// //         "**/Note*",      // Supports Note files (any extension | e.g. Note.txt)
+// //         "**/*.md"        // Includes Markdown files (e.g. README.md)
+// //     ]
+// // }
+
+
+
+// // {
+// //     "workbench.colorTheme": "Visual Studio Dark",
+
+// //     // Default Style for all highlights
+// //     "todohighlight.defaultStyle": {
+// //         "border": "1px solid gray",
+// //         "borderRadius": "4px",
+// //         "backgroundColor": "transparent",
+// //         "color": "white",
+// //         "fontWeight": "bold"
+// //     },
+
+// //     // Custom Keywords (Exact Text Match)
+// //     "todohighlight.customKeywords": {
+// //         "DEBUG:": {
+// //             "color": "#FFA500",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "REVIEW:": {
+// //             "color": "#00FF00",
+// //             "backgroundColor": "rgba(0, 255, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "NOTE": {
+// //             "color": "lightblue",
+// //             "backgroundColor": "rgba(0, 0, 255, 0.3)",
+// //             "bold": true
+// //         },
+// //         "IMPORTANT": {
+// //             "color": "red",
+// //             "backgroundColor": "rgba(255, 0, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "PRIORITY": {
+// //             "color": "orange",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         "URGENT": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff0000",
+// //             "bold": true
+// //         },
+// //         "HIGH": {
+// //             "color": "black",
+// //             "backgroundColor": "yellow",
+// //             "bold": true
+// //         },
+// //         "MEDIUM": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         "NORMAL": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         "LOW": {
+// //             "color": "#fff",
+// //             "backgroundColor": "grey",
+// //             "bold": true
+// //         },
+// //         "##########Code360 Start": {
+// //             "color": "#fff",
+// //             "backgroundColor": "green",
+// //             "bold": true
+// //         },
+// //         "##########Code360 End": {
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff5733",
+// //             "bold": true
+// //         },
+// //         "Link": {
+// //             "color": "#f1f1f1",
+// //             "backgroundColor": "#0900be",
+// //             "bold": true,
+// //             "borderRadius": "5px"
+// //         },
+        
+// //         // Newly added normal keywords
+// //         "Working": {
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#1976D2",
+// //             "bold": true
+// //         },
+// //         "Completed": {
+// //             "color": "#000000",
+// //             "backgroundColor": "#4CAF50",
+// //             "bold": true
+// //         },
+// //         "In Progress": {
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#FF9800",
+// //             "bold": true
+// //         },
+// //         "Done": {
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#8BC34A",
+// //             "bold": true
+// //         }
+// //     },
+
+// //     // Custom Patterns (Regex Match)
+// //     "todohighlight.customPatterns": {
+// //         "Task\\s\\d+": {
+// //             "backgroundColor": "#2196F3",
+// //             "color": "#FFF",
+// //             "border": "2px solid #000",
+// //             "bold": true
+// //         },
+// //         "Issue\\s\\d+": {
+// //             "backgroundColor": "#9C27B0",
+// //             "color": "#FFF",
+// //             "border": "2px solid #FFF",
+// //             "bold": true
+// //         },
+// //         "Bug\\s\\d+": {
+// //             "backgroundColor": "#FF0000",
+// //             "color": "#FFF",
+// //             "border": "2px solid black",
+// //             "bold": true
+// //         }
+// //     },
+
+// //     // File types where highlights should be applied
+// //     "todohighlight.include": [
+// //         "**/*.js",
+// //         "**/*.jsx",
+// //         "**/*.ts",
+// //         "**/*.tsx",
+// //         "**/*.html",
+// //         "**/*.php",
+// //         "**/*.css",
+// //         "**/*.scss",
+// //         "**/*.txt",      // Includes .txt files
+// //         "**/Note*",      // Supports Note files (any extension | e.g. Note.txt)
+// //         "**/*.md"        // Includes Markdown files (e.g. README.md)
+// //     ]
+// // }
+
+// // 🎨 How the New Keywords Will Look
+// // ============================================================
+// // Keyword	    Background	        Text Color	    Extra Styling
+// // Working	    Blue (#1976D2)	    White (#FFF)	Bold
+// // Completed	Green (#4CAF50)	    Black (#000)	Bold
+// // In Progress	Orange (#FF9800)	White (#FFF)	Bold
+// // Done	Light   Green (#8BC34A)	    White (#FFF)	Bold
+// // =============================================================
+
+
+// // {
+// //     "workbench.colorTheme": "Visual Studio Dark",
+
+// //     // Default Style (applies only to "New", "Start", "End")
+// //     "todohighlight.defaultStyle": {
+// //         "color": "#FFFFFF",
+// //         "backgroundColor": "#5C6BC0", // A blue shade for default
+// //         "bold": true,
+// //         "borderRadius": "4px"
+// //     },
+
+// //     // Keywords (Default first, then Custom)
+// //     "todohighlight.keywords": [
+// //         // "New", "Start", and "End" will follow the default style
+// //         "New",
+// //         "Start",
+// //         "End",
+
+// //         // Custom Keywords (Exact Match with Custom Styling)
+// //         {
+// //             "text": "DEBUG:",
+// //             "color": "#FFA500",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "REVIEW:",
+// //             "color": "#00FF00",
+// //             "backgroundColor": "rgba(0, 255, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "NOTE",
+// //             "color": "lightblue",
+// //             "backgroundColor": "rgba(0, 0, 255, 0.3)",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "IMPORTANT",
+// //             "color": "red",
+// //             "backgroundColor": "rgba(255, 0, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "PRIORITY",
+// //             "color": "orange",
+// //             "backgroundColor": "rgba(255, 165, 0, 0.3)",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "URGENT",
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff0000",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "HIGH",
+// //             "color": "black",
+// //             "backgroundColor": "yellow",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "MEDIUM",
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "NORMAL",
+// //             "color": "#fff",
+// //             "backgroundColor": "#0000ff",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "LOW",
+// //             "color": "#fff",
+// //             "backgroundColor": "grey",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "##########Code360 Start",
+// //             "color": "#fff",
+// //             "backgroundColor": "green",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "##########Code360 End",
+// //             "color": "#fff",
+// //             "backgroundColor": "#ff5733",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "Link",
+// //             "color": "#f1f1f1",
+// //             "backgroundColor": "#0900be",
+// //             "bold": true,
+// //             "borderRadius": "5px"
+// //         },
+// //         {
+// //             "text": "Working",
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#1976D2",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "Completed",
+// //             "color": "#000000",
+// //             "backgroundColor": "#4CAF50",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "In Progress",
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#FF9800",
+// //             "bold": true
+// //         },
+// //         {
+// //             "text": "Done",
+// //             "color": "#FFFFFF",
+// //             "backgroundColor": "#8BC34A",
+// //             "bold": true
+// //         }
+// //     ],
+// //      Pattern-based highlighting (using regex)
+// //     "todohighlight.keywordsPattern": "Task\\s\\d+|Issue\\s\\d+|Bug\\s\\d+",
+
+// //     // File types where highlights should be applied
+// //     "todohighlight.include": [
+// //         "**/*.js",
+// //         "**/*.jsx",
+// //         "**/*.ts",
+// //         "**/*.tsx",
+// //         "**/*.html",
+// //         "**/*.php",
+// //         "**/*.css",
+// //         "**/*.scss",
+// //         "**/*.txt",
+// //         "**/Note*",
+// //         "**/*.md"
+// //     ]
+// // }
+
+// // ============================================
+// // "todohighlight.keywords": [
+// //     "TODO",
+// //     "FIXME",
+// //     "BUG",
+// //     "ERROR",
+// //     "NOTE"
+// // ],
+// // "todohighlight.keywordsPattern": "Task\\s\\d+|Issue\\s\\d+"
+// // =============================
+// // "todohighlight.defaultStyle": {
+// //     "border": "1px solid gray",
+// //     "borderRadius": "4px",
+// //     "backgroundColor": "transparent",
+// //     "color": "white",
+// //     "fontWeight": "bold"
+// // },
+// // "todohighlight.customKeywords": {
+// //     "TODO": {
+// //         "backgroundColor": "#FFEB3B",
+// //         "color": "#000",
+// //         "fontWeight": "bold"
+// //     },
+// //     "FIXME": {
+// //         "backgroundColor": "#FF5722",
+// //         "color": "#FFF",
+// //         "fontStyle": "italic"
+// //     },
+// //     "BUG": {
+// //         "backgroundColor": "#D32F2F",
+// //         "color": "#FFF",
+// //         "border": "2px solid black"
+// //     },
+// //     "ERROR": {
+// //         "backgroundColor": "#F44336",
+// //         "color": "#FFF",
+// //         "textDecoration": "underline"
+// //     },
+// //     "NOTE": {
+// //         "backgroundColor": "#4CAF50",
+// //         "color": "#FFF"
+// //     }
+// // }
+// // ============================================
+
+// // Highlight
+// // "highlight.regexFlags": "gi",
+// // "highlight.regexes": {
+// //   "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+// //     "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+// //     "decorations": [
+// //       {
+// //         "overviewRulerColor": "#ffcc00",
+// //         "backgroundColor": "#ffcc00",
+// //         "color": "#1f1f1f",
+// //         "fontWeight": "bold"
+// //       },
+// //       {
+// //         "backgroundColor": "#ffcc00",
+// //         "color": "#1f1f1f"
+// //       }
+// //     ]
+// //   },
+// //   "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+// //     "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+// //     "decorations": [
+// //       {
+// //         "overviewRulerColor": "#cc0000",
+// //         "backgroundColor": "#cc0000",
+// //         "color": "#1f1f1f",
+// //         "fontWeight": "bold"
+// //       },
+// //       {
+// //         "backgroundColor": "#cc0000",
+// //         "color": "#1f1f1f"
+// //       }
+// //     ]
+// //   },
+// //   "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+// //     "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+// //     "decorations": [
+// //       {
+// //         "overviewRulerColor": "#00ccff",
+// //         "backgroundColor": "#00ccff",
+// //         "color": "#1f1f1f",
+// //         "fontWeight": "bold"
+// //       },
+// //       {
+// //         "backgroundColor": "#00ccff",
+// //         "color": "#1f1f1f"
+// //       }
+// //     ]
+// //   },
+// //   "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+// //     "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+// //     "decorations": [
+// //       {
+// //         "overviewRulerColor": "#cc00cc",
+// //         "backgroundColor": "#cc00cc",
+// //         "color": "#1f1f1f",
+// //         "fontWeight": "bold"
+// //       },
+// //       {
+// //         "backgroundColor": "#cc00cc",
+// //         "color": "#1f1f1f"
+// //       }
+// //     ]
+// //   }
+// // }

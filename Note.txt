@@ -40,3 +40,34 @@ sorting	reverse, sort	                     |   copy the array first (example)
 ----------------------------------------------------------------------------------------
 * Alternatively, you can use Immer which lets you use methods from both columns.
 
+
+FIXME: TODO:
+
+NOTE Note Test
+
+# TEST, // TEST, /* TEST */
+
+Test TEST
+
+Test
+
+//TASK: 
+
+//Task: 10
+
+Tasking:
+
+ DEMO:  10
+
+TODO 
+
+//FIXME //FIX //BUG //UGLY //DEBUG //HACK
+
+//REVIEW //OPTIMIZE //TSC
+
+//IDEA 
+
+ Task : 10 
+
+
+

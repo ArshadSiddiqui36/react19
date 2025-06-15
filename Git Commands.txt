@@ -3,11 +3,13 @@
 > git status
 > git add . | git add <file>
 > git commit -m "first commit"
+> git commit -a -m "Fixed"
+> git commit -am "Fixed"
 > git push -u origin master
 > git pull -u origin master
 > git clone <url>
 
-====================| Git Config Coomands (Author identity) |====================
+====================| Git Config Commands (Author identity) |====================
 > git config --global user.email "you@example.com"
 > git config --global user.name "Your Name"
 * Omit --global to set the identity only in this repository.

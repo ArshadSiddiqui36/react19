@@ -1,0 +1,27 @@
+ Task : 01  This the example of Task
+
+|NOTE| :  PRIORITY   REVIEW   DEBUG   URGENT   HIGH   MEDIUM   NORMAL   LOW  | TODO: FIXME:  Link 
+
+=> Sprint 1.17 Paras Bug:
+https://app.clickup.com/t/86cxxf67e
+https://app.clickup.com/t/86cxxexng
+https://app.clickup.com/t/86cxxe2mk
+https://app.clickup.com/t/86cxx243y
+https://app.clickup.com/t/86cxv58th Merge Required (Request Raised Already)
+https://app.clickup.com/t/86cxuu7k3 Text Correction
+
+Navigation Bar
+https://app.clickup.com/t/86cxur7y7
+https://app.clickup.com/t/86cxur3uu
+
+Sprint 1.17
+https://app.clickup.com/t/86cxg401u
+
+
+=> Sprint 1.18
+https://app.clickup.com/t/86cxahee5
+
+
+FIXME Test Bug
+ Task : 10 
+ 

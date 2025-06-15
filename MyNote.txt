@@ -1,0 +1,1595 @@
+// =================| MyCode Start |=================
+
+// =================| MyCode End |===================
+
+##########Code360 Start
+##########Code360 End
+
+########## MyCode Start
+########## MyCode End
+
+=====================================================
+=> Loader Required to Add on Save Button untill data Saving
+
+import { SaveButton, SaveBtnWrapper} from './style'
+import { SyncLoader } from "react-spinners";
+
+{!isLoading ? <SaveButton className='preferenceBtn' onClick={onsubmit}>Save</SaveButton> : <SaveBtnWrapper><SyncLoader color={theme["yellowPrimary"]} size={8} /></SaveBtnWrapper> }
+
+        {/* ##########Code360 Start */}
+        {!isLoading ? <SaveButton className='preferenceBtn' onClick={onsubmit}>
+          Save Data
+        </SaveButton> : <SaveBtnWrapper>
+          <SyncLoader color={theme["yellowPrimary"]} size={8} />
+        </SaveBtnWrapper>}
+        {/* ##########Code360 End */}
+
+const [isLoading, setIsLoading] = useState(false)
+=================================
+if (formData.length > 0) {
+  setIsLoading(true);
+
+  save(formData)
+    .then(() => setIsLoading(false)) // Stop loader on success
+    .catch(() => setIsLoading(false)); // Stop loader on error
+}
+==================================
+setIsLoading(true);
+
+save({
+  ...rest,
+  image: uploadedFile,
+  documentsRequired: documentsRequired,
+})
+  .then(() => setIsLoading(false)) // Stop loader on success
+  .catch(() => setIsLoading(false)); // Stop loader on error
+==================================
+setIsLoading(true);  // Start loader before saving
+
+save(obj)
+  .then(() => setIsLoading(false))  // Stop loader on success
+  .catch(() => setIsLoading(false));  // Stop loader on error
+
+==================================
+setIsLoading(true);  // Start loader before calling onsubmit
+
+onsubmit()
+  .then(() => setIsLoading(false))  // Stop loader on success
+  .catch(() => setIsLoading(false));  // Stop loader on error
+==================================
+
+// // ##########Code360 Start
+setIsLoading(true);
+
+save({
+  ...rest,
+  image: uploadedFile,
+  documentsRequired: documentsRequired,
+})
+.then(() => setIsLoading(false)) // Stop loader on success
+.catch(() => setIsLoading(false)); // Stop loader on error
+// // ##########Code360 End
+=====================================================
+
+
+Canny Request Feature Added in Both Admin and Student Portal
+=====================================================
+const user = {
+  id: '343',
+  name: 'Tarun Gupta',
+  email: 'tarun.gupta@venturepact.com',
+  avatarURL: 'https://www.gravatar.com/avatar/ef937d9f4d1b4ce3e5770ccce17041fbe4225847e74b6a799ae9262f20301aaf?d=https%3A%2F%2Fui-avatars.com%2Fapi%2FTarun%2Bgupta%2F80%2F1C1C1C%2Ffff'
+};
+
+Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzBhOTNmNi1jZDNjLTQ5N2QtYmY1ZS1iZjAxYmM5YmE1OWQiLCJvZmZpY2lhbEVtYWlsIjoidGFydW4uZ3VwdGFAdmVudHVyZXBhY3QuY29tIiwiaWF0IjoxNzM5ODYzNzg2LCJleHAiOjE5OTkwNjM3ODYsInR5cGUiOiJhY2Nlc3MifQ.VQDBllRJ054ylSd2dqGxEWJTO7EfOQ9SLsXD-E3qSL8
+
+const user = {
+  id: '4',
+  name: 'Shashank Dhiman',
+  email: 'shahsankdhiman+12@gmail.com',
+  avatarURL: 'https://www.gravatar.com/avatar/6050e2bba8e44c1db51bbb8df0b6c81be3898e6587d610bc3370ca35f97a18b5?d=https%3A%2F%2Fui-avatars.com%2Fapi%2FShashank%2BDhiman%2F80%2F1C1C1C%2Ffff'
+};
+
+Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3M2RlNmYwYS0wZDIxLTQ4NmEtYmMwYS0xYmFlYTRkMDU2NTIiLCJvZmZpY2lhbEVtYWlsIjoic2hhaHNhbmtkaGltYW4rMTJAZ21haWwuY29tIiwiaWF0IjoxNzM5ODgwNjE1LCJleHAiOjE5OTkwODA2MTUsInR5cGUiOiJhY2Nlc3MifQ.lbrP7GXYB08mrEQxqqnGvu_8n9nrBvd1qRqzvsTu5Xk
+=====================================================
+
+# Canny Feedback Add(Admin & Student)
+
+Studen:
+-----------------------
+feature-request
+<li onClick={() => navigate('/feature-request')}>
+-----------------------
+
+Admin:
+-----------------------
+https://developers.canny.io/install/widget/web
+https://developers.canny.io/install/widget/sso
+https://feature-reuquest.canny.io/admin/feedback/feature-requests/p/adding-feature-request-in-mu-lms-admin-and-student-both-testing
+
+=============================================================
+Your Secret API Key is: 083d7ab3-9942-248a-4689-df18e80a6946
+
+This is your private key: 88fe489d-42ab-2369-fa61-039d1382af44
+
+==============================================================
+npm install --save jsonwebtoken
+==============================================================
+var jwt = require('jsonwebtoken');
+
+var PrivateKey = '88fe489d-42ab-2369-fa61-039d1382af44';
+
+function createCannyToken(user) {
+  var userData = {
+    avatarURL: user.avatarURL, // optional, but preferred
+    email: user.email,
+    id: user.id,
+    name: user.name,
+  };
+  return jwt.sign(userData, PrivateKey, {algorithm: 'HS256'});
+}
+====================================================
+import React, { useEffect } from 'react';
+
+const BoardToken = 'd2dff87a-ee5c-7d08-c012-35bf11ffe192';
+// const BoardToken = 'YOUR_BOARD_TOKEN';
+
+const Feedback = () => {
+  useEffect(() => {
+    (function(w,d,i,s){function l(){if(!d.getElementById(i)){var f=d.getElementsByTagName(s)[0],e=d.createElement(s);e.type="text/javascript",e.async=!0,e.src="https://canny.io/sdk.js",f.parentNode.insertBefore(e,f)}}if("function"!=typeof w.Canny){var c=function(){c.q.push(arguments)};c.q=[],w.Canny=c,"complete"===d.readyState?l():w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1)}})(window,document,"canny-jssdk","script");
+
+    Canny('render', {
+      boardToken: BoardToken,
+      basePath: null, // See step 2
+      ssoToken: null, // See step 3,
+      theme: 'light', // options: light [default], dark, auto
+    });
+  }, []);
+
+  return (
+    <div data-canny />
+  );
+}
+
+export default Feedback;
+========================================================
+import React, { useEffect } from 'react';
+
+const BoardToken = 'acee2ecf-5fd5-a818-c098-c17dfbf793f0';
+// const BoardToken = 'YOUR_BOARD_TOKEN';
+
+const Feedback = () => {
+  useEffect(() => {
+    (function(w,d,i,s){function l(){if(!d.getElementById(i)){var f=d.getElementsByTagName(s)[0],e=d.createElement(s);e.type="text/javascript",e.async=!0,e.src="https://canny.io/sdk.js",f.parentNode.insertBefore(e,f)}}if("function"!=typeof w.Canny){var c=function(){c.q.push(arguments)};c.q=[],w.Canny=c,"complete"===d.readyState?l():w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1)}})(window,document,"canny-jssdk","script");
+
+    Canny('render', {
+      boardToken: BoardToken,
+      basePath: null, // See step 2
+      ssoToken: null, // See step 3,
+      theme: 'light', // options: light [default], dark, auto
+    });
+  }, []);
+
+  return (
+    <div data-canny />
+  );
+}
+
+export default Feedback;
+=========================================================
+
+
+
+
+
+
+
+
+========================================
+
+1. Add state for userProgramStatus:
+```javascript
+const [userProgramStatus, setUserProgramStatus] = useState("");
+```
+
+
+2. Update your API call/filtering logic to include both status filters:
+```javascript
+const filterUsers = () => {
+  let filteredData = [...originalData];
+  
+  // Filter by user status
+  if (userStatusFilter) {
+    filteredData = filteredData.filter(user => user.status === userStatusFilter);
+  }
+  
+  // Filter by program status
+  if (userProgramStatus) {
+    filteredData = filteredData.filter(user => user.programStatus === userProgramStatus);
+  }
+  
+  // Apply other filters (cohort, program, etc)
+  // ...
+  
+  return filteredData;
+};
+```
+
+
+3. Clear both filters when resetting:
+```javascript
+const clearFilters = () => {
+  setUserStatusFilter("");
+  setUserProgramStatus("");
+  // Clear other filters...
+};
+```
+
+
+
+// ... existing code ...
+
+<Grid item xs={12} md={2}>
+  <FormControl fullWidth sx={{ marginTop: "16px" }}>
+    <InputLabel id="demo-simple-select-helper-label" sx={{ paddingTop: '5px' }}>Status</InputLabel>
+    <Select
+      label="Status"
+      value={userStatusFilter}
+      onChange={(e) => { setUserStatusFilter(e.target.value); }}
+      sx={{ height: "54px" }}
+    >
+      <MenuItem value="">All </MenuItem>
+      <MenuItem value="Active">Active </MenuItem>
+      <MenuItem value="InActive">InActive </MenuItem>
+      <MenuItem value="Blocked">Blocked </MenuItem>
+    </Select>
+  </FormControl>
+</Grid>
+
+<Grid item xs={12} md={2}>
+  <FormControl fullWidth sx={{ marginTop: "16px" }}>
+    <InputLabel id="program-status-label" sx={{ paddingTop: '5px' }}>Program Status</InputLabel>
+    <Select
+      label="Program Status"
+      value={userProgramStatus}
+      onChange={(e) => { setUserProgramStatus(e.target.value); }}
+      sx={{ height: "54px" }}
+    >
+      <MenuItem value="">All</MenuItem>
+      <MenuItem value="ProgramActive">Program Active</MenuItem>
+      <MenuItem value="ProgramLeft">Program Left</MenuItem>
+      <MenuItem value="Completed">Program Completed</MenuItem>
+    </Select>
+  </FormControl>
+</Grid>
+
+// ... existing code ...
+
+======================================
+
+                    onChange={(e) => {
+                      const status = e.target.value;
+                      setUserStatusFilter(status);
+                      
+                      // Filter users based on selected status
+                      if (status === "ProgramLeft") {
+                        // Filter for Program Left users
+                        const filteredUsers = getUsersData.filter(user => 
+                          user.userProgramStatus === "ProgramLeft"
+                        );
+                        // Update the users list with filtered data
+                        setFilteredUsersData(filteredUsers);
+                      }
+                      else if (status === "Completed") {
+                        // Filter for Program Completed users  
+                        const filteredUsers = getUsersData.filter(user =>
+                          user.userProgramStatus === "Completed"
+                        );
+                        // Update the users list with filtered data
+                        setFilteredUsersData(filteredUsers);
+                      }
+                      else {
+                        // For other statuses, filter by userStatus
+                        const filteredUsers = status ? 
+                          getUsersData.filter(user => user.userStatus === status) :
+                          getUsersData; // Show all if no status selected
+                        setFilteredUsersData(filteredUsers);
+                      }
+                    }}
+
+======================================
+
+const updateUserStatus = async (userId, orgId, data) => {
+  try {
+    const response = await axiosService.patch(
+      `https://api-dev.mastersunion.in/api/v1/users/org/${orgId}/user/${userId}`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user status:", error);
+    throw error;
+  }
+};
+
+// Usage
+const userId = "635cf4f5-57ed-41b7-ba38-f1e33b36d747";
+const orgId = "77aa25d2-d52c-4c7b-ad4b-7b7de339fc4e";
+const requestData = {
+  userStatus: "Blocked",
+  updatedBy: "9c80e570-70d2-4c37-97d2-3eeae989676c",
+};
+
+updateUserStatus(userId, orgId, requestData)
+  .then((data) => console.log("User status updated:", data))
+  .catch((err) => console.log("Update failed:", err));
+
+======================================================
+
+const updateUserStatus = async (userId, orgId, data) => {
+  try {
+    const response = await axiosService.patch(
+      `https://api-dev.mastersunion.in/api/v1/users/org/${orgId}/user/${userId}`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user status:", error);
+    throw error;
+  }
+};
+
+// Usage
+const userId = "213e5740-75d5-453e-8ac4-9469de7db455";
+const orgId = "77aa25d2-d52c-4c7b-ad4b-7b7de339fc4e";
+const requestData = {
+  userStatus: "InActive",
+  updatedBy: "9c80e570-70d2-4c37-97d2-3eeae989676c",
+};
+
+updateUserStatus(userId, orgId, requestData)
+  .then((data) => console.log("User status updated:", data))
+  .catch((err) => console.log("Update failed:", err));
+============================================================
+
+const updateUserProgramStatus = async (userId, orgId, data) => {
+  try {
+    const response = await axiosService.patch(
+      `https://api-dev.mastersunion.in/api/v1/users/org/${orgId}/user/${userId}`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user program status:", error);
+    throw error;
+  }
+};
+
+// Usage
+const userId = "213e5740-75d5-453e-8ac4-9469de7db455";
+const orgId = "77aa25d2-d52c-4c7b-ad4b-7b7de339fc4e";
+const requestData = {
+  userProgramStatus: "Completed",
+  updatedBy: "9c80e570-70d2-4c37-97d2-3eeae989676c",
+};
+
+updateUserProgramStatus(userId, orgId, requestData)
+  .then((data) => console.log("User program status updated:", data))
+  .catch((err) => console.log("Update failed:", err));
+
+==========================================================
+
+const updateUserProgramStatus = async (userId, orgId, data) => {
+  try {
+    const response = await axiosService.patch(
+      `https://api-dev.mastersunion.in/api/v1/users/org/${orgId}/user/${userId}`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user program status:", error);
+    throw error;
+  }
+};
+
+// Usage
+const userId = "3ad5f1f9-6030-43c0-bbb5-134ddabcb6d8";
+const orgId = "77aa25d2-d52c-4c7b-ad4b-7b7de339fc4e";
+const requestData = {
+  userProgramStatus: "ProgramLeft",
+  updatedBy: "9c80e570-70d2-4c37-97d2-3eeae989676c",
+};
+
+updateUserProgramStatus(userId, orgId, requestData)
+  .then((data) => console.log("User program status updated:", data))
+  .catch((err) => console.log("Update failed:", err));
+=============================================================
+
+
+
+
+
+
+
+const studentLogin = () => {
+  window.open(`${process.env.REDIRECT_URL}login?email=${usergeneralData?.officialEmail}&userId=${usergeneralData?.uuid}&token=${authData?.token?.access?.token}`)
+  console.log(`${process.env.REDIRECT_URL}login?email=${usergeneralData?.officialEmail}&userId=${usergeneralData?.uuid}&token=${authData?.token?.access?.token}`, "hdvhdhdbhd")
+}
+
+Admin > ProfileTab.js
+// #####Code360 Start
+// Canny SVG Icon
+export const CannyIcon = () => {
+    return (
+        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_17859_106196)">
+            <path d="M9.0416 18.5837C5.6244 18.5837 2.82471 15.8089 2.82471 12.4V7.09968C2.82471 3.69078 5.6244 0.916016 9.0416 0.916016C12.0767 0.916016 14.6576 3.08432 15.1588 6.06956C15.2392 6.55142 14.9207 7.00558 14.4388 7.0886C13.957 7.16893 13.5056 6.84493 13.4226 6.36309C13.0626 4.23078 11.2459 2.68278 9.07485 2.68278C6.63242 2.68278 4.66347 4.66556 4.66347 7.09968V12.4C4.66347 14.8369 6.63242 16.8169 9.07485 16.8169C11.2432 16.8169 13.0681 15.2689 13.4253 13.1366C13.5056 12.6548 13.9598 12.3308 14.4388 12.4111C14.9207 12.4914 15.2308 12.9483 15.1506 13.4274C14.6548 16.4154 12.0739 18.5837 9.0416 18.5837Z" fill="#5F5DF9"/>
+            <g opacity="0.5">
+            <path d="M7.07819 10.5446C6.59078 10.5446 6.22803 10.1486 6.22803 9.66122V7.10522C6.22803 5.53231 7.49635 4.25293 9.07478 4.25293C10.152 4.25293 11.1213 4.85109 11.6142 5.81478C11.8357 6.24955 11.6613 6.78122 11.2265 7.00279C10.7917 7.2243 10.2573 7.05263 10.0357 6.61787C9.84743 6.24678 9.45419 6.01693 9.04435 6.01693C8.44062 6.01693 7.93111 6.5043 7.93111 7.10246V9.65846C7.92835 10.1486 7.56554 10.5446 7.07819 10.5446Z" fill="#5F5DF9"/>
+            </g>
+            </g>
+            <defs>
+            <clipPath id="clip0_17859_106196">
+            <rect width="18" height="18" fill="white" transform="translate(0 0.75)"/>
+            </clipPath>
+            </defs>
+        </svg>
+    );
+}
+// #####Code360 End
+
+//  #####Code360 Start
+  {
+    value:"Canny Feedback",
+    route:"#",
+    icon:<CannyIcon/>
+    
+  }
+  //  #####Code360 End
+
+========================
+Studen > Header.js
+{/* #####Code360 Start */}
+<li>
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.04154 17.8338C5.62434 17.8338 2.82465 15.0591 2.82465 11.6501V6.34981C2.82465 2.94091 5.62434 0.166138 9.04154 0.166138C12.0766 0.166138 14.6575 2.33445 15.1588 5.31968C15.2391 5.80154 14.9206 6.2557 14.4388 6.33873C13.9569 6.41905 13.5055 6.09505 13.4225 5.61321C13.0625 3.48091 11.2459 1.93291 9.07479 1.93291C6.63235 1.93291 4.66341 3.91568 4.66341 6.34981V11.6501C4.66341 14.0871 6.63235 16.0671 9.07479 16.0671C11.2431 16.0671 13.068 14.5191 13.4253 12.3867C13.5055 11.9049 13.9597 11.5809 14.4388 11.6612C14.9206 11.7415 15.2308 12.1985 15.1505 12.6775C14.6548 15.6655 12.0739 17.8338 9.04154 17.8338Z" fill="#5F5DF9"/>
+    <g opacity="0.5">
+    <path d="M7.07819 9.79475C6.59078 9.79475 6.22803 9.39875 6.22803 8.91134V6.35534C6.22803 4.78244 7.49635 3.50305 9.07478 3.50305C10.152 3.50305 11.1213 4.10121 11.6142 5.0649C11.8357 5.49967 11.6613 6.03134 11.2265 6.25291C10.7917 6.47442 10.2573 6.30275 10.0357 5.86799C9.84743 5.4969 9.45419 5.26705 9.04435 5.26705C8.44062 5.26705 7.93111 5.75442 7.93111 6.35259V8.90859C7.92835 9.39875 7.56554 9.79475 7.07819 9.79475Z" fill="#5F5DF9"/>
+    </g>
+  </svg>
+  Canny Feedback
+</li>
+{/* #####Code360 End */}
+
+
+
+Admin
+D:\Projects\MS LMS Project\lms-admin-frontend\src\pages\userMangement\UserMangementNew.js
+D:\Projects\MS LMS Project\lms-admin-frontend\src\pages\userMangement\Profile.js
+=============================================================`
+
+
+
+{/* ######### Popper Start */}
+<Popper
+    open={open}
+    anchorEl={anchorEl}
+    placement={"left-start"}
+    transition
+    sx={{ zIndex: 3333 }}
+>
+    {({ TransitionProps }) => (
+        <Fade {...TransitionProps} timeout={350}>
+            <Paper sx={{ padding: 0 }}>
+                <List>
+                    <ListItem
+                        button
+                        // divider
+                        onClick={changeStatus}
+                    >
+                        <ListItemIcon>
+                            {userStatus == "InActive" ? <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.50003 3.3125C5.94673 3.3125 4.68753 4.5717 4.68753 6.125C4.68753 7.6783 5.94673 8.9375 7.50003 8.9375C9.05333 8.9375 10.3125 7.6783 10.3125 6.125C10.3125 4.5717 9.05333 3.3125 7.50003 3.3125ZM3.56253 6.125C3.56253 3.95038 5.32541 2.1875 7.50003 2.1875C9.67465 2.1875 11.4375 3.95038 11.4375 6.125C11.4375 8.29962 9.67465 10.0625 7.50003 10.0625C5.32541 10.0625 3.56253 8.29962 3.56253 6.125ZM5.51777 11.5625C5.55304 11.5625 5.58879 11.5625 5.62503 11.5625H9.00003C9.31069 11.5625 9.56253 11.8143 9.56253 12.125C9.56253 12.4357 9.31069 12.6875 9.00003 12.6875H5.62503C4.53743 12.6875 4.11833 12.6936 3.79246 12.7925C3.01343 13.0288 2.40381 13.6384 2.16749 14.4174C2.06864 14.7433 2.06253 15.1624 2.06253 16.25C2.06253 16.5607 1.81069 16.8125 1.50003 16.8125C1.18937 16.8125 0.937531 16.5607 0.937531 16.25C0.937531 16.2138 0.937523 16.178 0.937515 16.1427C0.937306 15.1992 0.937173 14.5977 1.09093 14.0909C1.43632 12.9523 2.32731 12.0613 3.46589 11.7159C3.97276 11.5621 4.57419 11.5623 5.51777 11.5625ZM16.8978 12.1023C17.1174 12.3219 17.1174 12.6781 16.8978 12.8977L13.8978 15.8977C13.6781 16.1174 13.322 16.1174 13.1023 15.8977L11.6023 14.3977C11.3826 14.1781 11.3826 13.8219 11.6023 13.6023C11.822 13.3826 12.1781 13.3826 12.3978 13.6023L13.5 14.7045L16.1023 12.1023C16.322 11.8826 16.6781 11.8826 16.8978 12.1023Z" fill="#4A4A68" />
+                            </svg> :
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.50003 3.3125C5.94673 3.3125 4.68753 4.5717 4.68753 6.125C4.68753 7.6783 5.94673 8.9375 7.50003 8.9375C9.05333 8.9375 10.3125 7.6783 10.3125 6.125C10.3125 4.5717 9.05333 3.3125 7.50003 3.3125ZM3.56253 6.125C3.56253 3.95038 5.32541 2.1875 7.50003 2.1875C9.67465 2.1875 11.4375 3.95038 11.4375 6.125C11.4375 8.29962 9.67465 10.0625 7.50003 10.0625C5.32541 10.0625 3.56253 8.29962 3.56253 6.125ZM5.51777 11.5625C5.55304 11.5625 5.58879 11.5625 5.62503 11.5625H9.00003C9.31069 11.5625 9.56253 11.8143 9.56253 12.125C9.56253 12.4357 9.31069 12.6875 9.00003 12.6875H5.62503C4.53743 12.6875 4.11833 12.6936 3.79246 12.7925C3.01343 13.0288 2.40381 13.6384 2.16749 14.4174C2.06864 14.7433 2.06253 15.1624 2.06253 16.25C2.06253 16.5607 1.81069 16.8125 1.50003 16.8125C1.18937 16.8125 0.937531 16.5607 0.937531 16.25C0.937531 16.2138 0.937523 16.178 0.937515 16.1427C0.937306 15.1992 0.937173 14.5977 1.09093 14.0909C1.43632 12.9523 2.32731 12.0613 3.46589 11.7159C3.97276 11.5621 4.57419 11.5623 5.51777 11.5625ZM11.9773 12.1023C12.197 11.8826 12.5531 11.8826 12.7728 12.1023L14.25 13.5795L15.7273 12.1023C15.947 11.8826 16.3031 11.8826 16.5228 12.1023C16.7424 12.3219 16.7424 12.6781 16.5228 12.8977L15.0455 14.375L16.5228 15.8523C16.7424 16.0719 16.7424 16.4281 16.5228 16.6477C16.3031 16.8674 15.947 16.8674 15.7273 16.6477L14.25 15.1705L12.7728 16.6477C12.5531 16.8674 12.197 16.8674 11.9773 16.6477C11.7576 16.4281 11.7576 16.0719 11.9773 15.8523L13.4545 14.375L11.9773 12.8977C11.7576 12.6781 11.7576 12.3219 11.9773 12.1023Z" fill="#4A4A68" />
+                                </svg>
+
+                            }
+
+                        </ListItemIcon>
+                        <ListItemText
+                            primary={userStatus === "Active" ? "InActive" : "Active"}
+                        />
+                    </ListItem>
+
+                    {userStatus != "Blocked" && <ListItem
+                        button
+                        // divider
+                        onClick={() => changeStatus("Blocked")}
+                    >
+
+                        <ListItemIcon>
+                            <img src={BlockIcon} alt="" />
+                        </ListItemIcon>
+                        <ListItemText
+                            primary={"Blocked"}
+                        />
+                    </ListItem>}
+                    {tabValue == 0 && role !== 'Counsellor' &&
+                        <ListItem
+                            button
+                            // divider
+                            onClick={chnageProgramStatus}
+                        >
+                            <ListItemIcon>
+
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1V15M3.15039 7H10.1504C10.4265 7 10.6504 6.77614 10.6504 6.5V2.5C10.6504 2.22386 10.4265 2 10.1504 2H3.15039C2.87425 2 2.65039 2.22386 2.65039 2.5V6.5C2.65039 6.77614 2.87425 7 3.15039 7ZM3.15039 14H15.1504C15.4265 14 15.6504 13.7761 15.6504 13.5V9.5C15.6504 9.22386 15.4265 9 15.1504 9H3.15039C2.87425 9 2.65039 9.22386 2.65039 9.5V13.5C2.65039 13.7761 2.87425 14 3.15039 14Z" stroke="#4A4A68" stroke-linecap="round" />
+                                </svg>
+
+
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={userProgramStatus === "ProgramActive" ? "ProgramLeft" : "ProgramActive"}
+                            />
+                        </ListItem>
+                    }
+                    {tabValue == 0 && role !== 'Counsellor' &&
+                        <ListItem
+                            button
+                            // divider
+                            onClick={() => chnageProgramStatus("Completed")}
+                        >
+                            <ListItemIcon>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8236 3.1631C10.4571 2.55422 8.93034 2.40338 7.47111 2.73307C6.01187 3.06277 4.6983 3.85533 3.72631 4.99257C2.75431 6.1298 2.17597 7.55076 2.07754 9.04354C1.97911 10.5363 2.36585 12.0209 3.1801 13.2759C3.99435 14.531 5.19248 15.4891 6.59579 16.0076C7.9991 16.526 9.53241 16.577 10.967 16.1528C12.4017 15.7286 13.6607 14.8521 14.5565 13.6539C15.4522 12.4557 15.9366 11 15.9375 9.50397V8.81429C15.9375 8.50363 16.1893 8.25179 16.5 8.25179C16.8107 8.25179 17.0625 8.50363 17.0625 8.81429V9.50429C17.0615 11.2429 16.4985 12.9349 15.4575 14.3275C14.4165 15.72 12.9533 16.7387 11.286 17.2316C9.61874 17.7246 7.83679 17.6654 6.20592 17.0629C4.57504 16.4604 3.18263 15.3468 2.23634 13.8883C1.29005 12.4297 0.840582 10.7044 0.954977 8.96952C1.06937 7.23467 1.7415 5.58328 2.87111 4.26163C4.00073 2.93998 5.52731 2.01889 7.22318 1.63573C8.91905 1.25257 10.6933 1.42787 12.2814 2.13549C12.5652 2.26193 12.6927 2.59447 12.5663 2.87823C12.4399 3.162 12.1073 3.28954 11.8236 3.1631ZM16.8975 3.10205C17.1173 3.32161 17.1175 3.67777 16.8979 3.89755L9.39795 11.405C9.29248 11.5106 9.14937 11.57 9.00014 11.57C8.85091 11.57 8.70778 11.5108 8.60225 11.4052L6.35225 9.15525C6.13258 8.93558 6.13258 8.57942 6.35225 8.35975C6.57192 8.14008 6.92808 8.14008 7.14775 8.35975L8.9998 10.2118L16.1021 3.10245C16.3216 2.88267 16.6778 2.88249 16.8975 3.10205Z" fill="#1BA9A0" />
+                                </svg>
+
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={"Program Completed"}
+                            />
+                        </ListItem>
+                    }
+                    {
+                        tabValue == 0 && role !== 'Counsellor' &&
+                        <ListItem
+                            button
+                            // divider
+                            onClick={syncDeviced}
+                        >
+                            <ListItemIcon>
+                                <SyncIcon />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={"Sync To Devices"}
+                            />
+                        </ListItem>
+                    }
+
+                    {
+                        !isSync && tabValue == 0 && role !== 'Counsellor' &&
+                        <ListItem
+                            button
+                            // divider
+                            onClick={studentHandler}
+                        >
+                            <ListItemIcon>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 1.6875C2.56066 1.6875 2.8125 1.93934 2.8125 2.25V14.55C2.8125 14.7693 2.81294 14.8999 2.82085 14.9968C2.82568 15.0559 2.83205 15.0807 2.83412 15.0874C2.85176 15.1209 2.87912 15.1482 2.9126 15.1659C2.91925 15.1679 2.94409 15.1743 3.00321 15.1791C3.10005 15.1871 3.2307 15.1875 3.45 15.1875H15.75C16.0607 15.1875 16.3125 15.4393 16.3125 15.75C16.3125 16.0607 16.0607 16.3125 15.75 16.3125H3.43033C3.23722 16.3125 3.05986 16.3125 2.9116 16.3004C2.75175 16.2874 2.57687 16.2575 2.40414 16.1694C2.15718 16.0436 1.95639 15.8428 1.83056 15.5959C1.74255 15.4231 1.71265 15.2483 1.69959 15.0884C1.68747 14.9401 1.68749 14.7628 1.6875 14.5697L1.6875 2.25C1.6875 1.93934 1.93934 1.6875 2.25 1.6875ZM2.91066 15.1652C2.91068 15.1652 2.91108 15.1653 2.91178 15.1656L2.91066 15.1652ZM2.8348 15.0893C2.83479 15.0894 2.83465 15.089 2.83439 15.0882L2.8348 15.0893ZM12.1875 5.25C12.1875 4.93934 12.4393 4.6875 12.75 4.6875H15.75C16.0607 4.6875 16.3125 4.93934 16.3125 5.25V8.25C16.3125 8.56066 16.0607 8.8125 15.75 8.8125C15.4393 8.8125 15.1875 8.56066 15.1875 8.25V6.608L12.0613 9.73419C11.9965 9.799 11.9263 9.86926 11.8605 9.9251C11.7861 9.98829 11.6813 10.0653 11.5397 10.1113C11.3514 10.1725 11.1486 10.1725 10.9603 10.1113C10.8187 10.0653 10.7139 9.98829 10.6395 9.9251C10.5737 9.86926 10.5035 9.799 10.4387 9.73419L9.02652 8.32201C9.01717 8.31266 9.00835 8.30385 9 8.29551C8.99165 8.30385 8.98284 8.31266 8.97349 8.32201L5.64775 11.6477C5.42808 11.8674 5.07192 11.8674 4.85225 11.6477C4.63258 11.4281 4.63258 11.0719 4.85225 10.8523L8.18872 7.51579C8.25349 7.45099 8.32371 7.38073 8.38947 7.3249C8.46391 7.26171 8.56874 7.18471 8.7103 7.13871C8.89859 7.07754 9.10141 7.07754 9.28971 7.13871C9.43127 7.18471 9.5361 7.26171 9.61053 7.3249C9.6763 7.38073 9.74652 7.45098 9.81128 7.51578C9.81488 7.51938 9.81845 7.52296 9.82201 7.52652L11.2235 8.92799C11.2328 8.93734 11.2417 8.94615 11.25 8.95449C11.2584 8.94615 11.2672 8.93734 11.2765 8.92799L14.392 5.8125H12.75C12.4393 5.8125 12.1875 5.56066 12.1875 5.25Z" fill="#4A4A68" />
+                                </svg>
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={"Student Performance"}
+                            />
+                        </ListItem>
+                    }
+
+                    {studentLoginAccess ? <ListItem
+                        button
+                        // divider
+                        onClick={studentLogin}
+                    >
+                        <ListItemIcon>
+                            <LoginIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                            primary={"Student Login"}
+                            sx={{ marginLeft: '4px' }}
+                        />
+                    </ListItem> :
+                        <div
+                            onClick={handleAccessPop}
+                        >
+                            <ListItem
+                                button
+                                // divider
+                                disabled={true}
+                            >
+                                <ListItemIcon>
+                                    <img src={lock} style={{ marginRight: '10px' }} alt="lock" />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={"Student Login"}
+                                    sx={{ marginLeft: '4px' }}
+                                />
+                            </ListItem></div>
+                    }
+                    {viewStudentPermission ? <ListItem button onClick={() => route(`/profile?userId=${userId}`)}>
+                        <ListItemIcon>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M4.64887 6.03823C3.49853 6.99831 2.69581 8.12399 2.29069 8.76548C2.23536 8.85307 2.21158 8.89154 2.19576 8.922C2.18677 8.93929 2.18438 8.94637 2.18222 8.95535C2.18203 8.95667 2.18165 8.9595 2.18123 8.96391C2.18033 8.97347 2.17969 8.98598 2.17969 9C2.17969 9.01402 2.18033 9.02653 2.18123 9.03609C2.18165 9.0405 2.18203 9.04333 2.18222 9.04465C2.18438 9.05363 2.18677 9.06071 2.19576 9.078C2.21158 9.10846 2.23536 9.14693 2.29069 9.23452C2.69581 9.87601 3.49853 11.0017 4.64887 11.9618C5.79788 12.9208 7.25983 13.6875 9.0003 13.6875C10.7408 13.6875 12.2027 12.9208 13.3517 11.9618C14.5021 11.0017 15.3048 9.87601 15.7099 9.23452C15.7652 9.14692 15.789 9.10846 15.8048 9.078C15.8138 9.06071 15.8162 9.05363 15.8184 9.04465C15.8186 9.04332 15.819 9.0405 15.8194 9.03609C15.8203 9.02653 15.8209 9.01402 15.8209 9C15.8209 8.98598 15.8203 8.97347 15.8194 8.96391C15.819 8.9595 15.8186 8.95668 15.8184 8.95535C15.8162 8.94637 15.8138 8.93929 15.8048 8.922C15.789 8.89154 15.7652 8.85308 15.7099 8.76548C15.3048 8.12399 14.5021 6.99831 13.3517 6.03823C12.2027 5.07925 10.7408 4.3125 9.0003 4.3125C7.25983 4.3125 5.79788 5.07925 4.64887 6.03823ZM3.92801 5.17452C5.20339 4.11007 6.91202 3.1875 9.0003 3.1875C11.0886 3.1875 12.7972 4.11007 14.0726 5.17452C15.3467 6.23787 16.2222 7.46975 16.6611 8.16476C16.6665 8.17337 16.672 8.18202 16.6776 8.19073C16.7666 8.33112 16.8651 8.48657 16.9156 8.70677C16.956 8.88316 16.956 9.11684 16.9156 9.29323C16.8651 9.51344 16.7666 9.66888 16.6776 9.80927C16.672 9.81798 16.6665 9.82664 16.6611 9.83524C16.2222 10.5302 15.3467 11.7621 14.0726 12.8255C12.7972 13.8899 11.0886 14.8125 9.0003 14.8125C6.91202 14.8125 5.20339 13.8899 3.92801 12.8255C2.65394 11.7621 1.77842 10.5302 1.3395 9.83525C1.33406 9.82663 1.32857 9.81798 1.32305 9.80926C1.23404 9.66887 1.13548 9.51343 1.08501 9.29323C1.04458 9.11684 1.04458 8.88316 1.08501 8.70677C1.13548 8.48657 1.23404 8.33113 1.32305 8.19073C1.32857 8.18202 1.33406 8.17337 1.3395 8.16476C1.77842 7.46975 2.65394 6.23787 3.92801 5.17452ZM9.0003 7.3125C8.06832 7.3125 7.3128 8.06802 7.3128 9C7.3128 9.93198 8.06832 10.6875 9.0003 10.6875C9.93228 10.6875 10.6878 9.93198 10.6878 9C10.6878 8.06802 9.93228 7.3125 9.0003 7.3125ZM6.1878 9C6.1878 7.4467 7.447 6.1875 9.0003 6.1875C10.5536 6.1875 11.8128 7.4467 11.8128 9C11.8128 10.5533 10.5536 11.8125 9.0003 11.8125C7.447 11.8125 6.1878 10.5533 6.1878 9Z" fill="#4A4A68" />
+                            </svg>
+
+                        </ListItemIcon>
+                        <ListItemText primary="View Details" />
+                    </ListItem> :
+                        <div onClick={() => handleAccessPop()}>
+                            <ListItem button disabled={true}>
+                                <ListItemIcon>
+                                    <img src={lock} style={{ marginRight: '10px' }} alt="lock" />
+                                </ListItemIcon>
+                                <ListItemText primary="View Details" />
+                            </ListItem>
+                        </div>}
+
+                    {/* ########## MyCode Start */}
+                    {studentLoginAccess ? (
+                        <ListItem
+                            button
+                            onClick={handleCopyToken}
+                        >
+                            <ListItemIcon>
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path d="M6 11C6 8.17157 6 6.75736 6.87868 5.87868C7.75736 5 9.17157 5 12 5H15C17.8284 5 19.2426 5 20.1213 5.87868C21 6.75736 21 8.17157 21 11V16C21 18.8284 21 20.2426 20.1213 21.1213C19.2426 22 17.8284 22 15 22H12C9.17157 22 7.75736 22 6.87868 21.1213C6 20.2426 6 18.8284 6 16V11Z" stroke="#292929" stroke-width="1.5" />
+                                        <path opacity="0.5" d="M6 19C4.34315 19 3 17.6569 3 16V10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H15C16.6569 2 18 3.34315 18 5" stroke="#292929" stroke-width="1.5" />
+                                    </g>
+                                </svg>
+                            </ListItemIcon>
+                            <ListItemText primary="Copy Token" />
+                        </ListItem>
+                    ) : (
+                        <div onClick={() => handleAccessPop()}>
+                            <ListItem button disabled>
+                                <ListItemIcon>
+                                    <img src={lock} style={{ marginRight: '10px' }} alt="lock" />
+                                </ListItemIcon>
+                                <ListItemText primary="Copy Token" />
+                            </ListItem>
+                        </div>
+                    )}
+                    {/* ########## MyCode End */}
+                </List>
+            </Paper>
+        </Fade>
+    )}
+</Popper>
+{/* ######### Popper End */}
+
+===========================
+
+{/* ########## MyCode Start */}
+<div className="actionSection">
+  {/* Action Button */}
+  <MoreVertIcon onClick={handleMutipleAction} className="actionBtn" />
+
+  {/* Submenu */}
+  {isOpen && (
+    <div className="actionContainer">
+      <button className="actionItem">Edit</button>
+      <button className="actionItem">Delete</button>
+      <button className="actionItem">View</button>
+    </div>
+  )}
+
+  {/* Styles */}
+  <style>
+    {`
+      .actionSection {
+        position: absolute;
+        right: 25px;
+        top: 20px;
+      }
+
+      .actionBtn {
+        cursor: pointer;
+        color: #f1f1f1;
+        border-radius: 6px;
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .actionBtn:hover {
+        background-color: #2e2e2e;
+      }
+
+      .actionContainer {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .actionItem {
+        background: none;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .actionItem:hover {
+        background-color: #f1f1f1;
+      }
+    `}
+  </style>
+</div>
+{/* ########## MyCode End */}
+=======================================
+{/* ########## MyCode Start */}
+<style>
+  {`
+    .actionSection {
+      position: absolute;
+      right: 25px;
+      top: 20px;
+
+
+    }
+    .actionBtn {
+      // border: 1px solid red;
+      cursor: pointer;
+      color: #f1f1f1;
+      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      padding: 5px;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #2e2e2e;
+      }
+    }
+  `}
+</style>
+<div className="actionSection">
+    <MoreVertIcon onClick={(event) => handleMutipleAction(event)} 
+      className="actionBtn"
+    />
+
+  <div className="actionContainer">
+      
+  </div>
+
+</div>
+{/* ########## MyCode End */}
+
+==================
+Copy Token:
+Student Login
+http://localhost:4000/undefinedlogin?email=8c87a087-3ad5-4b00-ab71-a7db99beaf1f&userId=9c80e570-70d2-4c37-97d2-3eeae989676c&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5YzgwZTU3MC03MGQyLTRjMzctOTdkMi0zZWVhZTk4OTY3NmMiLCJvZmZpY2lhbEVtYWlsIjoidGFydW5AbWFzdGVyc3VuaW9uLm9yZyIsImlhdCI6MTczOTMzMjkxMCwiZXhwIjoxOTk4NTMyOTEwLCJ0eXBlIjoiYWNjZXNzIn0.-xpK2AAxBdJ-5QxSsNeQIALJ-1k5o6fmPDmgfaIZXhc
+
+
+undefinedlogin?email=8c87a087-3ad5-4b00-ab71-a7db99beaf1f&userId=9c80e570-70d2-4c37-97d2-3eeae989676c&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5YzgwZTU3MC03MGQyLTRjMzctOTdkMi0zZWVhZTk4OTY3NmMiLCJvZmZpY2lhbEVtYWlsIjoidGFydW5AbWFzdGVyc3VuaW9uLm9yZyIsImlhdCI6MTczOTMzMjkxMCwiZXhwIjoxOTk4NTMyOTEwLCJ0eXBlIjoiYWNjZXNzIn0.-xpK2AAxBdJ-5QxSsNeQIALJ-1k5o6fmPDmgfaIZXhc
+
+  // ########## MyCode Start
+  const handleCopyToken = () => {
+    let obj = {
+      officialEmail: singleUserData?.uuid,
+      superUserId: id
+    }
+    const tokenURL = `${window.location.origin}/${process.env.REDIRECT_URL}login?email=${obj?.officialEmail}&userId=${id}&token=${authData?.token?.access?.token}`;
+    console.log(tokenURL, "tokenURL");
+
+    navigator.clipboard.writeText(tokenURL)
+      .then(() => {
+        activeSnackbar("success", "Token Copied to Clipboard");
+        console.log("Token URL copied to clipboard:", tokenURL);
+      })
+      .catch((err) => {
+        activeSnackbar("error", "Failed to copy");
+        console.error("Failed to copy:", err);
+      });
+  }
+  // console.log(handleCopyToken, "handleCopyToken");
+  // ########## MyCode End
+
+====================
+const userPath = `${window.location.origin}/profile?userId=${userId}`;
+const loginURL = `${process.env.REDIRECT_URL}login?email=${obj?.officialEmail}&userId=${id}&token=${authData?.token?.access?.token}`;
+
+const fullText = `${userPath}\n${loginURL}`; // Concatenating both URLs with a newline
+
+navigator.clipboard.writeText(fullText)
+  .then(() => {
+    console.log("Copied to clipboard:", fullText);
+  })
+  .catch((err) => {
+    console.error("Failed to copy:", err);
+  });
+
+==================================
+onClick={(e) => e.stopPropagation()} // Prevent row click when clicking checkbox
+
+=============================================================
+
+import { IconButton } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
+userActionPermission?{ id: "action",  label: (
+  <MoreVertIcon onClick ={(event)=>handleMutipleAction(event)} />
+), align: "center" }:{},
+
+userActionPermission?[
+  <IconButton
+    aria-label="action"
+    onClick={(event) => handleClickPoper(user, i)(event)}
+    onBlur={() => setOpen((prev) => poperIndex !== i || false)}
+  >
+    <MoreVertIcon />
+  </IconButton>,
+]:[]
+
+
+[
+  <IconButton
+    aria-label="action"
+    onClick={(event) => handlePopperClickOpen(res, index)(event)}
+    onBlur={() => setCounsellorPopperOpen((prev) => counsellorPoperIndex !== index || false)}
+
+  >
+  <MoreVertIcon />
+  </IconButton>
+]
+==============================================================
+Admin
+"fileLink" is not allowed, "fileSize" is not allowed, "fileType" is not allowed
+
+"acceptType": "application/json"
+
+Accept: multipart/form-data
+
+Accept: application/json
+
+
+===============
+const handleClose = () => {
+      setOpenAddPopup(false)
+}
+
+const closeHandle = () => {
+      seteditUserQualification("")
+}
+
+============
+<Button
+  variant="contained"
+  style={styels.btn}
+  onClick={() => cancelpopup()}
+>
+Cancel
+</Button>
+
+============
+const [open, setopen] = useState(false)
+const [editOpen, setEditOpen] = useState(false)
+
+const handleClose = () => {
+  setopen(false)
+  setEditOpen(false)
+}
+
+{open && <SidePopup
+  open={open}
+  description="Add Work Experience Details "
+  colorHeading="Work Experience"
+  span="Details"
+  handleOpen={handleClose}
+>
+  {open && <UserExperiencePopup type="add" setopen={setopen} />}
+
+</SidePopup>}
+
+
+{editOpen && editOpen == data.uuid &&
+  <SidePopup
+    open={editOpen && editOpen == data.uuid ? true : false}
+    description="Edit general details for user profile."
+    colorHeading="Edit Work Experience Details"
+    span=""
+    handleOpen={handleClose}
+
+  >}
+==============================================================
+import Loader from "../../components/Loadable/Loader";
+<Loader />
+spinner__loader
+
+SaveButton
+
+import { SyncLoader } from "react-spinners";
+<SyncLoader color={theme["yellowPrimary"]} />
+
+
+{!isLoading ? <SaveButton className='preferenceBtn' onClick={onsubmit}>Save</SaveButton> : <SyncLoader color={theme["yellowPrimary"]} /> }
+
+
+.spinner__loader {
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      width: 25px;
+      padding: 4px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: ${({ theme }) => theme['blackPrimary']};
+      --_m: conic-gradient(#0000 10%,#000), linear-gradient(#000 0 0) content-box;
+      -webkit-mask: var(--_m); mask: var(--_m);
+      -webkit-mask-composite: source-out; 
+      mask-composite: subtract;
+      animation: l3 1s infinite linear;
+  }
+  
+  @keyframes l3 {to{transform: rotate(1turn)}}
+=================================================================
+// Add these state variables at the top of your component
+const [activeTab, setActiveTab] = useState(null);
+const [sectionOffsets, setSectionOffsets] = useState({});
+
+// Add this useEffect to calculate section offsets and handle scroll
+useEffect(() => {
+  if (!mobileScreen) {
+    // Calculate section offsets
+    const offsets = {};
+    navBarData?.forEach(item => {
+      const element = document.getElementById(item.action);
+      if (element) {
+        offsets[item.action] = element.offsetTop - 100; // Subtract header height/offset
+      }
+    });
+    setSectionOffsets(offsets);
+
+    // Scroll handler
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      
+      // Find the current section
+      let currentSection = navBarData[0]?.action;
+      for (let i = navBarData.length - 1; i >= 0; i--) {
+        const section = navBarData[i]?.action;
+        if (scrollPosition >= sectionOffsets[section]) {
+          currentSection = section;
+          break;
+        }
+      }
+      
+      setActiveTab(currentSection);
+
+      // Handle sticky header
+      const BannerTabSection = document.getElementById("BannerTabSection");
+      if (scrollPosition > 820) {
+        BannerTabSection?.classList.add("sticky");
+      } else {
+        BannerTabSection?.classList.remove("sticky");
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }
+}, [mobileScreen, sectionOffsets, navBarData]);
+
+// Update your scrollToElement function
+const scrollToElement = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = sectionOffsets[id] || el.offsetTop - 100;
+    window.scrollTo({
+      top: offset,
+      behavior: "smooth"
+    });
+    setActiveTab(id);
+  }
+};
+
+// Update your BannerTabSection component
+<BannerTabSection id="BannerTabSection">
+  <div className="tabSection">
+    <ul>
+      {navBarData?.map((res, index) => (
+        <li
+          key={index}
+          className={activeTab === res.action ? "activeTab" : ""}
+          onClick={() => scrollToElement(res.action)}
+        >
+          {res?.title}
+        </li>
+      ))}
+    </ul>
+  </div>
+</BannerTabSection>
+
+// Remove or update the onScroll prop from PortfolioMainWrapper
+<PortfolioMainWrapper id="outerContainer">
+  {/* ... rest of your content ... */}
+</PortfolioMainWrapper>
+==================================================================
+uploadBox DetailUploadBox
+style={{border: "1px solid #A33F3F"}}
+
+{accFormData[accomplishmentsIndex]?.uploadedFile?.fileName ? valid : invalid}
+
+{accFormData[accomplishmentsIndex]?.uploadedFile?.fileName ? valid : invalid}
+
+style={{
+  border: accFormData[accomplishmentsIndex]?.uploadedFile?.fileName ? "1px solid green" : "1px solid #A33F3F"
+}}
+
+invalid={
+  accFormData[accomplishmentsIndex]
+    ?.uploadedFile?.fileName === "" &&
+  accomplishmentError
+    ? true
+    : false
+}
+
+style={
+
+  invalid={
+  accFormData[accomplishmentsIndex]
+    ?.uploadedFile?.fileName === "" &&
+  accomplishmentError
+    ? true
+    : false
+}
+  
+  {
+  border: accFormData[accomplishmentsIndex]?.uploadedFile?.fileName ? "1px solid green" : "1px solid #A33F3F"
+}}
+
+
+style={
+  accFormData[accomplishmentsIndex]?.uploadedFile?.fileName === "" && accomplishmentError ? {border: "1px solid green"} : {border: "1px solid #A33F3F"} 
+}
+
+
+style = {
+    accFormData[accomplishmentsIndex]?.uploadedFile?.fileName==="" && accomplishmentError ? {
+        border: "1px solid #A33F3F"
+    }
+
+    : {
+        border: "1px solid #232323"
+    }
+}
+
+
+style = {
+    accFormData[accomplishmentsIndex]?.uploadedFile?.fileName==="" && accomplishmentError ? {
+        border: "1px solid #232323"
+    } 
+    : {
+        border: "1px solid #A33F3F"
+    }
+}
+
+style = {{border: `1px solid ${accFormData[accomplishmentsIndex]?.uploadedFile?.fileName === "" && accomplishmentError ?} #A33F3F` ${:} #232323`}}
+
+style = {
+  accFormData[accomplishmentsIndex]?.uploadedFile?.fileName === "" && accomplishmentError ? {
+      border: "1px solid #A33F3F"
+    } 
+    : {
+      border: "1px solid #232323"
+    }
+}
+
+style={
+  accFormData[accomplishmentsIndex]
+    ?.Description === "" &&
+  accomplishmentError
+    ? {
+        width: "100%",
+        background: "#1c1c1c",
+        borderRadius: "10px",
+        border: "1px solid #A33F3F",
+      }
+    : { width: "100%" }
+}
+
+================================
+
+invalid={
+  accFormData[accomplishmentsIndex]
+    ?.title === "" && accomplishmentError
+    ? true
+    : false
+}
+
+invalid={
+  formData[workIndex]?.Description === "" &&
+  workExpError
+    ? true
+    : false
+}
+
+invalid={
+  accFormData[accomplishmentsIndex]
+    ?.issuerBy === "" && accomplishmentError
+    ? true
+    : false
+}
+
+invalid={
+  accFormData[accomplishmentsIndex]
+    ?.companyWebsiteLink === "" &&
+  accomplishmentError
+    ? true
+    : false
+}
+
+invalid={
+  accFormData[accomplishmentsIndex]
+    ?.Description === "" &&
+  accomplishmentError
+    ? true
+    : false
+}
+
+
+============================|| Fixed Code ||================================
+
+useEffect(() => {
+    // Reset error state when the page loads
+    setAccomplishmentError(false);
+  }, [accFormData]); // Empty dependency array ensures it runs only once on page load
+
+  const addAccomplishments = () => {
+    if (accFormData?.length > 0 && !validateAccomplishment(accFormData)) {
+      setAccomplishmentError(true);
+      setOpenOneAcc(5);
+      scrollToElement("accomplishmentScroll");
+      notifyError("Please fill out all mandatory fields in my accomplishment.");
+    } else {
+      setAccomplishmentsIndex(accFormData?.length);
+      setAccFormData([
+        ...accFormData,
+        {
+          title: "",
+          issuerBy: "",
+          Date: "",
+          Description: "",
+          uploadedFile: "",
+          uploadedPresentation: "",
+          eventLink: "",
+        },
+      ]); // Adding a new skill object with default values
+    }
+  };
+==================================================================
+useEffect(() => {
+    // Reset error state when the page loads
+    setAccomplishmentError(false);
+  }, [accFormData]); // Empty dependency array ensures it runs only once on page load
+  
+  const addAccomplishments = () => {
+    // Ensure accFormData is always an array
+    const currentData = accFormData || [];
+  
+    // First interaction: Remove error if previously set
+    if (accomplishmentError) {
+      setAccomplishmentError(false);
+    }
+  
+    // Validate only if there is existing data
+    if (currentData.length > 0 && !validateAccomplishment(currentData)) {
+      setAccomplishmentError(true);
+      setOpenOneAcc(5);
+      scrollToElement("accomplishmentScroll");
+      notifyError("Please fill out all mandatory fields in my accomplishment.");
+      return; // Stop execution if validation fails
+    }
+  
+    // Add new accomplishment entry
+    setAccomplishmentsIndex(currentData.length);
+    setAccFormData([
+      ...currentData,
+      {
+        title: "",
+        issuerBy: "",
+        date: "",
+        description: "",
+        uploadedFile: "",
+        uploadedPresentation: "",
+        eventLink: "",
+      },
+    ]);
+  };
+
+
+==========================================================================
+
+<FormGroup>
+                                    <Label style={{ color: "white" }}>
+                                      Rate Yourself as how skilled are you from{" "}
+                                      <span className="highlight-text">0</span> to <span className="highlight-text">10</span> ?
+                                    </Label>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        width: "100%",
+                                      }}
+                                    >
+                                      <span>0</span>
+                                      <FromInput
+                                        onBlur={
+                                          savedDataShow ? onBlurSubmit : ""
+                                        }
+                                        className="editProfileInput editSkill"
+                                        placeholder="obtainValue"
+                                        type="range"
+                                        name="obtainValue"
+                                        value={res?.obtainValue}
+                                        onChange={(e) => handleSkill(e)(res, i)}
+                                        min="0"
+                                        max="10"
+                                      />
+                                      <span>10</span>
+                                    </div>
+                                  </FormGroup>
+
+
+=========|| Modified Above Code and Added Tooltip for Range slider ||===========
+<FormGroup>
+                                    <Label style={{ color: "white" }}>
+                                      Rate Yourself as how skilled are you from{" "}
+                                      <span className="highlight-text">0</span> to <span className="highlight-text">10</span> ?
+                                    </Label>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        width: "100%",
+                                        position: "relative"
+                                      }}
+                                    >
+                                      <span>0</span>
+                                      <div style={{ position: "relative", flex: 1, gap: "16px"}}>
+                                        <div
+                                          className="range-tooltip"
+                                          style={{
+                                            position: "absolute",
+                                            bottom: "100%",
+                                            left: `calc(${(res?.obtainValue / 10) * 100}% - 12px)`,
+                                            background: theme['yellowPrimary'],
+                                            padding: "2px 8px",
+                                            borderRadius: "4px",
+                                            fontSize: "12px",
+                                            color: "#000",
+                                            transform: "translateY(-5px)",
+                                            visibility: res?.obtainValue ? "visible" : "hidden"
+                                          }}
+                                        >
+                                          {res?.obtainValue}
+                                        </div>
+                                        <FromInput
+                                          onBlur={savedDataShow ? onBlurSubmit : ""}
+                                          className="editProfileInput editSkill"
+                                          placeholder="obtainValue" 
+                                          type="range"
+                                          name="obtainValue"
+                                          value={res?.obtainValue}
+                                          onChange={(e) => handleSkill(e)(res, i)}
+                                          min="0"
+                                          max="10"
+                                        />
+                                      </div>
+                                      <span>10</span>
+                                    </div>
+                                  </FormGroup>
+
+CSS
+
+.highlight-text{
+  color: ${({ theme }) => theme["yellowPrimary"]};
+}
+
+.range-tooltip {
+  transition: left 0.1s ease-out;
+}
+
+.range-tooltip:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme["yellowPrimary"]} transparent transparent transparent;
+}
+
+
+===========================|| Tooltip for Range slider ||=======================
+How It Works
+✅ Moves tooltip dynamically as you slide the range.
+✅ Shows selected value in real time.
+✅ Positioned above the range pointer.
+
+
+import React, { useState } from "react";
+import { FormGroup, Label } from "reactstrap";
+
+const SkillRange = ({ res, i, handleSkill, onBlurSubmit, savedDataShow }) => {
+  const [tooltipValue, setTooltipValue] = useState(res?.obtainValue || 0);
+  const [tooltipPosition, setTooltipPosition] = useState(0);
+
+  const handleRangeChange = (e) => {
+    const value = e.target.value;
+    setTooltipValue(value);
+
+    // Dynamically position tooltip
+    const rangeWidth = e.target.offsetWidth; // Get range width
+    const min = Number(e.target.min);
+    const max = Number(e.target.max);
+    const newPosition = ((value - min) / (max - min)) * rangeWidth; // Calculate position
+
+    setTooltipPosition(newPosition);
+    handleSkill(e)(res, i); // Call the existing handler
+  };
+
+  return (
+    <FormGroup>
+      <Label style={{ color: "white" }}>
+        Rate Yourself as how skilled are you from{" "}
+        <span className="highlight-text">0</span> to{" "}
+        <span className="highlight-text">10</span> ?
+      </Label>
+      <div style={{ position: "relative", width: "100%" }}>
+        {/* Tooltip for range value */}
+        <div
+          className="tooltip"
+          style={{
+            position: "absolute",
+            left: `calc(${tooltipPosition}px - 10px)`, // Adjust for centering
+            top: "-30px",
+            background: "black",
+            color: "white",
+            padding: "4px 8px",
+            borderRadius: "4px",
+            fontSize: "12px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {tooltipValue}
+        </div>
+
+        {/* Range Slider */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            position: "relative",
+          }}
+        >
+          <span>0</span>
+          <input
+            onBlur={savedDataShow ? onBlurSubmit : undefined}
+            className="editProfileInput editSkill"
+            placeholder="obtainValue"
+            type="range"
+            name="obtainValue"
+            value={tooltipValue}
+            onChange={handleRangeChange}
+            min="0"
+            max="10"
+            style={{ width: "100%", margin: "0 10px" }}
+          />
+          <span>10</span>
+        </div>
+      </div>
+    </FormGroup>
+  );
+};
+
+export default SkillRange;
+
+================================================================================ 
+
+   border-radius: 40px;
+    padding: 4px 8px;
+    font-size: 10px;
+    border: 1px solid rgb(242, 189, 101);
+    color: rgb(3, 3, 3);
+    width: 70px;
+    background: rgb(242, 189, 101);
+=========================================
+
+Required> Edit-img icon hover
+
+Add Qualifications, Add Accomplishments, Edit Accomplishments, 
+Accomplishments Detail, Edit Preference
+==========================================
+.HoverStyle {
+    & .hover-text:hover {
+        color: ${({ theme }) => theme["yellowDark"]} !important;
+        // filter: brightness(80%) !important;
+        // invert(53%) sepia(88%) saturate(678%) hue-rotate(-15deg) brightness(97%) contrast(100%)") !important;
+
+        &:hover svg path{
+        fill: ${({ theme }) => theme["yellowDark"]} !important;
+        }
+    }
+
+    & .hover-effect:hover {
+    color: ${({ theme }) => theme["yellowDark"]} !important;
+    border: 1px solid ${({ theme }) => theme["yellowDark"]} !important;
+
+        &:hover img{
+            filter: brightness(80%) saturate(350%) !important;
+        }
+    }
+}
+
+==========================================
+
+.addBtn .Edittooltip
+top: 8px;
+right: 0;
+
+margin-top: 8px;
+height: fit-content;
+======================================
++ Add additional details
+
+& .hover-text:hover {
+        color: ${({ theme }) => theme["yellowDark"]} !important;
+        // filter: brightness(80%) !important;
+        // invert(53%) sepia(88%) saturate(678%) hue-rotate(-15deg) brightness(97%) contrast(100%)") !important;
+    
+        &:hover svg path{
+          fill: ${({ theme }) => theme["yellowDark"]} !important;
+        }
+      }
+======================================
+
+<img style={{cursor:'pointer'}} className="discardBtn" onClick={onDiscard}
+    src={`https://assets-cdn.mastersunion.in/svgs/ticketcross.svg?color1=${theme['yellowPrimary'].replace('#', '')}`}
+    alt="Test Image"
+  />
+==========================================
+
+profile-accordian
+update timezone
+
+
+.cancelBtn:hover {
+    background-color: ${({ theme }) => theme["greyhover"]} !important;
+    border: transparent !important;
+  }
+  .deleteBtn:hover {
+    background-color: ${({ theme }) => theme["yellowDark"]} !important;
+    border: transparent !important;
+  }
+
+
+============================================================
+
+.WorkBtns{
+        opacity: 0;
+        transition: opacity 0.3s  ease-in-out; 
+        cursor:pointer;
+
+        & .edit-img, .delete-img {
+          // border: 1px solid red;
+          transition: background-color 0.2s ease;
+          width: 32px;
+          height: 32px;
+          
+          padding: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        & .edit-img:hover, .delete-img:hover {
+          background-color: #373737;
+        }
+
+      }
+
+Required> Edit-img icon hover
+============================================================
+
+IMG
+
+<style>
+  .icon {
+    filter: invert(0%);
+    transition: filter 0.3s ease;
+  }
+
+  .icon:hover {
+    filter: invert(22%) sepia(100%) saturate(7499%) hue-rotate(360deg) brightness(97%) contrast(119%);
+  }
+</style>
+
+<img src="icon.svg" alt="Icon" class="icon" width="50">
+
+
+
+
+
+SVG
+
+<style>
+  .icon {
+    fill: black; /* Default color */
+    transition: fill 0.3s ease;
+  }
+
+  .icon:hover {
+    fill: #ff0000; /* Change color on hover */
+  }
+</style>
+
+<svg class="icon" width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2L15 8H9L12 2ZM4 22L12 10L20 22H4Z"/>
+</svg>
+
+
+
+Direct Change Color
+
+<style>
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .icon,
+  .icon-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .icon-hover {
+    opacity: 0; /* Hidden by default */
+  }
+
+  .icon-wrapper:hover .icon {
+    opacity: 0; /* Hide original icon on hover */
+  }
+
+  .icon-wrapper:hover .icon-hover {
+    opacity: 1; /* Show red icon on hover */
+  }
+</style>
+
+<div class="icon-wrapper">
+  <img src="icon.svg" alt="Icon" class="icon" width="50">
+  <img src="icon.svg" alt="Icon Hover" class="icon-hover" width="50" style="filter: invert(22%) sepia(100%) saturate(7499%) hue-rotate(360deg) brightness(97%) contrast(119%);">
+</div>

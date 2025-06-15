@@ -1,0 +1,44 @@
+=> Extensions for VS Code
+
+1️⃣ Productivity & Code Navigation
+🔹 Bookmarks – Quickly navigate between important lines of code.
+🔹 TODO Highlight – Highlights TODOs, FIXMEs, and custom tags.
+🔹 Code Spell Checker – Helps catch typos in comments and variable names.
+
+2️⃣ Debugging & Performance
+🐞 Debugger for Chrome – Great for front-end web dev.
+🔍 Error Lens – Shows inline error messages right in the editor.
+⚡ Turbo Console Log – Instantly generates meaningful console.log messages.
+
+3️⃣ Code Formatting & Styling
+🎨 Prettier – Automatically formats your code.
+👓 Indent Rainbow – Colorizes indentation levels for better readability.
+🔳 Bracket Pair Colorizer 2 – Colors matching brackets (though now built into VS Code).
+
+4️⃣ Git & Version Control
+🔄 GitLens – Powerful Git integration with inline blame and history.
+🚀 Git Graph – Visualizes your Git repo’s history.
+
+5️⃣ AI & Code Assistance
+🤖 Tabnine / Codeium – AI-powered code suggestions.
+🧠 GitHub Copilot – Writes code for you (paid but super useful).
+
+Since you’re working with PHP, you might also find these helpful:
+🐘 PHP Intelephense – Smart PHP autocompletion & linting.
+📌 Laravel Blade Snippets – Great for Laravel projects.
+
+
+🔹 How to Access Pieces Explorer in VS Code:
+Install the Pieces extension (if not already installed):
+Open Extensions (Ctrl + Shift + X).
+Search for "Pieces for Developers" and install it.
+Open the Pieces Explorer Panel:
+Click on the Pieces icon in the Activity Bar (left sidebar).
+OR press Ctrl + Shift + P, then search for "Pieces: Open Explorer" and select it.
+🔹 Features of Pieces Explorer:
+✅ Save & Retrieve Snippets – Quickly save important code snippets.
+✅ Auto-tagging & AI Suggestions – Helps organize snippets smartly.
+✅ Fast Search – Quickly find your saved snippets using keywords.
+✅ Integration with VS Code – Works directly inside your workflow.
+
+

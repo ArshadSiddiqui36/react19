@@ -1,0 +1,216 @@
+{
+    // TODO Highlight Extention
+    // Sets the color theme for VS Code
+    "workbench.colorTheme": "Visual Studio Dark",
+
+    // Enables or disables the Todo Highlight extension
+    "todohighlight.isEnable": true,
+
+    // Ensures keyword matching is case-sensitive (e.g., "DEBUG" won't match "debug")
+    "todohighlight.isCaseSensitive": true,
+
+    // Default styling for unspecified keywords
+    "todohighlight.defaultStyle": {
+        "color": "#FFF",
+        "backgroundColor": "#FF5733",
+        "bold": true,
+        // "border": "1px solid #1f1f1f"
+        "borderRadius": "3px"
+    },
+
+    "todohighlight.keywords": [
+        // These will use the default style
+        " New ",
+
+        " Start ",
+
+        " End ",
+
+        // Custom styled keywords
+        {
+            "text": " DEBUG ",
+            "color": "#FFA500",
+            "backgroundColor": "rgba(255, 165, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " REVIEW ",
+            "color": "#00FF00",
+            "backgroundColor": "rgba(0, 255, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": "|NOTE|",
+            "color": "lightblue",
+            "backgroundColor": "rgba(0, 0, 255, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " IMPORTANT ",
+            "color": "red",
+            "backgroundColor": "rgba(255, 0, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " PRIORITY ",
+            "color": "orange",
+            "backgroundColor": "rgba(255, 165, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " URGENT ",
+            "color": "#fff",
+            "backgroundColor": "#ff0000",
+            "bold": true
+        },
+        {
+            "text": " HIGH ",
+            "color": "black",
+            "backgroundColor": "yellow",
+            "bold": true
+        },
+        {
+            "text": " MEDIUM ",
+            "color": "#fff",
+            "backgroundColor": "green",
+            "bold": true
+        },
+        {
+            "text": " NORMAL ",
+            "color": "#fff",
+            "backgroundColor": "#0a20e2",
+            "bold": true
+        },
+        {
+            "text": " LOW ",
+            "color": "#fff",
+            "backgroundColor": "grey",
+            "bold": true
+        },
+        {
+            "text": "##########Code360 Start",
+            "color": "#fff",
+            "backgroundColor": "green",
+            "bold": true
+        },
+        {
+            "text": "##########Code360 End",
+            "color": "#fff",
+            "backgroundColor": "#ff5733",
+            "bold": true
+        },
+        {
+            "text": " Link ",
+            "color": "#f1f1f1",
+            "backgroundColor": "#0900be",
+            "bold": true,
+            "border": "1px solid #000293",
+            "borderRadius": "3px"
+            // ⚠️ Note: Sometimes "border" and "borderRadius" do not work together in this extension.
+            // If both are set, Only "border" will be applied, and "borderRadius" will be ignored.
+        }
+    ],
+
+    // Pattern-based highlighting (using regex)
+    // "todohighlight.keywordsPattern": "Task\\s\\d+|Issue\\s\\d+|Bug\\s\\d+",
+
+    // "todohighlight.keywordsPattern": "TODO:|FIXME:|\\(([^)]+)\\)", //highlight `TODO:`,`FIXME:` or content between parentheses
+    // "todohighlight.defaultStyle": {
+    //     "color": "red",
+    //     "backgroundColor": "#ffab00",
+    //     "overviewRulerColor": "#ffab00",
+    //     "cursor": "pointer",
+    //     "border": "1px solid #eee",
+    //     "borderRadius": "2px",
+    //     "isWholeLine": false,
+    //     //other styling properties goes here ... 
+    // },
+
+    // File types where highlighting should be applied
+    "todohighlight.include": [
+        "**/*.js",     // JavaScript files
+        "**/*.jsx",    // React JS files
+        "**/*.ts",     // TypeScript files
+        "**/*.tsx",    // React TypeScript files
+        "**/*.html",   // HTML files
+        "**/*.php",    // PHP files
+        "**/*.css",    // CSS files
+        "**/*.scss",   // SCSS files
+        "**/*.txt",    // Plain text files
+        "**/Note*",    // Any file starting with "Note" (e.g., Note.txt)
+        "**/*.md"      // Markdown files (e.g., README.md)
+    ],
+
+    // Exclude certain folders from being scanned for highlights
+    "todohighlight.exclude": [
+        "**/node_modules/**",      // Ignore dependencies
+        "**/bower_components/**",  // Ignore frontend package manager files
+        "**/dist/**",              // Ignore build output
+        "**/build/**",             // Ignore compiled files
+        "**/.vscode/**",           // Ignore VS Code config files
+        "**/.github/**",           // Ignore GitHub workflows
+        "**/_output/**",           // Ignore generated output
+        "**/*.min.*",              // Ignore minified files
+        "**/*.map",                // Ignore source map files
+        "**/.next/**"              // Ignore Next.js build output
+    ],
+
+    // Maximum number of files to scan for highlighting (increase if needed)
+    "todohighlight.maxFilesForSearch": 5120,
+
+    // If set to true, enables highlighting in the file path (URI) as well
+    "todohighlight.toggleURI": false,
+
+    // Highlight Extention
+    // "highlight.decorations": { "rangeBehavior": 3 }, // Default decorations from which all others inherit from
+    // "highlight.regexFlags": "gi", // Default flags used when building the regexes
+    // "highlight.regexes": {
+    //     "FIXME": {
+    //         "color": "#FF0000",
+    //         "backgroundColor": "#FFC0CB",
+    //         "bold": true
+    //     },
+    //     "TODO": {
+    //         "color": "#FFA500",
+    //         "backgroundColor": "#FFFF00",
+    //         "italic": true
+    //     },
+    //     "NOTE": {
+    //         "color": "#00BFFF",
+    //         "bold": true
+    //     },
+    //     "Task\\s\\d+": {
+    //         "color": "#FFF",
+    //         "backgroundColor": "#2196F3",
+    //         "border": "2px solid #000",
+    //         "bold": true
+    //     },
+    //     "Issue\\s\\d+": {
+    //         "color": "#FFF",
+    //         "backgroundColor": "#9C27B0",
+    //         "border": "2px solid #FFF",
+    //         "bold": true
+    //     },
+    //     "Bug\\s\\d+": {
+    //         "color": "#FFF",
+    //         "backgroundColor": "#FF0000",
+    //         "border": "2px solid black",
+    //         "bold": true
+    //     },
+    //     "(//TODO)(:)": [ // A regex will be created from this string, don't forget to double escape it
+    //         { "color": "yellow" }, // Decoration options to apply to the first capturing group, in this case "//TODO"
+    //         { "color": "red" } // Decoration options to apply to the second capturing group, in this case ":"
+    //     ]
+    // }, // Object mapping regexes to options or an array of decorations to apply to the capturing groups
+    // "highlight.minDelay": 50, // Minimum number of milliseconds to wait before highlighting the document after a change, used for throttling
+    // "highlight.maxMatches": 250 // Maximum number of matches to decorate per regex, in order not to crash the app with accidental cathastropic regexes
+
+
+    "highlight.regexes": {
+    "Test": {
+        "color": "#00FF00",
+        "backgroundColor": "#000000",
+        "bold": true
+    }
+}
+}

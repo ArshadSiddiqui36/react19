@@ -1,0 +1,384 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code Regular, Consolas, 'Courier New', monospace",
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "cd $dir && dotnet run $fileName",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "scheme": "csi -script",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        "lisp": "sbcl --script",
+        "kit": "kitc --run",
+        "v": "v run",
+        "sass": "sass --style expanded",
+        "scss": "scss --style expanded",
+        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "sml": "cd $dir && sml $fileName"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "editor.wordWrap": "on",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "hediet.vscode-drawio.resizeImages": null,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.userWords": [
+        "Arshad",
+        "Siddiqui"
+    ],
+    "editor.unicodeHighlight.allowedLocales": {
+        "es": true
+    },
+    "pieces.addSnippets": null,
+    "pieces.OS.launchOnStartup": "Yes",
+    "pieces.cloudCapabilities": "Blended",
+    "pieces.telemetry": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "material-icon-theme.activeIconPack": "react",
+    "vsicons.associations.folderDefault.folder": null,
+    "workbench.iconTheme": "material-icon-theme",
+    "cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 1000,
+    "svg.preview.mode": "svg",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        
+    ],
+    "editor.fontVariations": false
+    
+    // ==================================| TODO Highlight |==================================
+    // Sets the color theme for VS Code
+    "workbench.colorTheme": "Visual Studio Dark",
+    
+    // Enables or disables the Todo Highlight extension
+    "todohighlight.isEnable": false,
+    
+    // Ensures keyword matching is case-sensitive (e.g., "DEBUG" won't match "debug")
+    "todohighlight.isCaseSensitive": true,
+
+    // Default styling for unspecified keywords
+    "todohighlight.defaultStyle": {
+        "color": "#FFF",
+        "backgroundColor": "#FF5733",
+        "bold": true,
+        // "border": "1px solid #1f1f1f"
+        "borderRadius": "3px"
+    },
+
+    "todohighlight.keywords": [
+        // These will use the default style
+        " New ",
+
+        " Start ",
+
+        " End ",
+
+        // Custom styled keywords
+        {
+            "text": " DEBUG ",
+            "color": "#FFA500",
+            "backgroundColor": "rgba(255, 165, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " REVIEW ",
+            "color": "#00FF00",
+            "backgroundColor": "rgba(0, 255, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": "|NOTE|",
+            "color": "lightblue",
+            "backgroundColor": "rgba(0, 0, 255, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " IMPORTANT ",
+            "color": "red",
+            "backgroundColor": "rgba(255, 0, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " PRIORITY ",
+            "color": "orange",
+            "backgroundColor": "rgba(255, 165, 0, 0.3)",
+            "bold": true
+        },
+        {
+            "text": " URGENT ",
+            "color": "#fff",
+            "backgroundColor": "#ff0000",
+            "bold": true
+        },
+        {
+            "text": " HIGH ",
+            "color": "black",
+            "backgroundColor": "yellow",
+            "bold": true
+        },
+        {
+            "text": " MEDIUM ",
+            "color": "#fff",
+            "backgroundColor": "green",
+            "bold": true
+        },
+        {
+            "text": " NORMAL ",
+            "color": "#fff",
+            "backgroundColor": "#0a20e2",
+            "bold": true
+        },
+        {
+            "text": " LOW ",
+            "color": "#fff",
+            "backgroundColor": "grey",
+            "bold": true
+        },
+        {
+            "text": "##########Code360 Start",
+            "color": "#fff",
+            "backgroundColor": "green",
+            "bold": true
+        },
+        {
+            "text": "##########Code360 End",
+            "color": "#fff",
+            "backgroundColor": "#ff5733",
+            "bold": true
+        },
+        {
+            "text": " Link ",
+            "color": "#f1f1f1",
+            "backgroundColor": "#0900be",
+            "bold": true,
+            "border": "1px solid #000293",
+            "borderRadius": "3px"
+            // ⚠️ Note: Sometimes "border" and "borderRadius" do not work together in this extension.
+            // If both are set, Only "border" will be applied, and "borderRadius" will be ignored.
+        }
+    ],
+
+    // Pattern-based highlighting (using regex)
+    // "todohighlight.keywordsPattern": "Task\\s\\d+|Issue\\s\\d+|Bug\\s\\d+",
+
+    // "todohighlight.keywordsPattern": "TODO:|FIXME:|\\(([^)]+)\\)", //highlight `TODO:`,`FIXME:` or content between parentheses
+    // "todohighlight.defaultStyle": {
+    //     "color": "red",
+    //     "backgroundColor": "#ffab00",
+    //     "overviewRulerColor": "#ffab00",
+    //     "cursor": "pointer",
+    //     "border": "1px solid #eee",
+    //     "borderRadius": "2px",
+    //     "isWholeLine": false,
+    //     //other styling properties goes here ... 
+    // },
+
+    // File types where highlighting should be applied
+    "todohighlight.include": [
+        "**/*.js",     // JavaScript files
+        "**/*.jsx",    // React JS files
+        "**/*.ts",     // TypeScript files
+        "**/*.tsx",    // React TypeScript files
+        "**/*.html",   // HTML files
+        "**/*.php",    // PHP files
+        "**/*.css",    // CSS files
+        "**/*.scss",   // SCSS files
+        "**/*.txt",    // Plain text files
+        "**/Note*",    // Any file starting with "Note" (e.g., Note.txt)
+        "**/*.md"      // Markdown files (e.g., README.md)
+    ],
+
+    // Exclude certain folders from being scanned for highlights
+    "todohighlight.exclude": [
+        "**/node_modules/**",      // Ignore dependencies
+        "**/bower_components/**",  // Ignore frontend package manager files
+        "**/dist/**",              // Ignore build output
+        "**/build/**",             // Ignore compiled files
+        "**/.vscode/**",           // Ignore VS Code config files
+        "**/.github/**",           // Ignore GitHub workflows
+        "**/_output/**",           // Ignore generated output
+        "**/*.min.*",              // Ignore minified files
+        "**/*.map",                // Ignore source map files
+        "**/.next/**"              // Ignore Next.js build output
+    ],
+
+    // Maximum number of files to scan for highlighting (increase if needed)
+    "todohighlight.maxFilesForSearch": 5120,
+
+    // If set to true, enables highlighting in the file path (URI) as well
+    "todohighlight.toggleURI": false,
+
+    // ==================================| Highlight |==================================
+    "highlight.regexes": {
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#ffcc00",
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc0000",
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#00ccff",
+                    "backgroundColor": "#00ccff",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#00ccff",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc00cc",
+                    "backgroundColor": "#cc00cc",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc00cc",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TEST(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#00FF00",
+                    "backgroundColor": "#000000",
+                    "color": "#00FF00",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#000000",
+                    "color": "#00FF00"
+                }
+            ]
+        },
+
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TASK(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#ffcc00",
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "( Task : \\d+ )": {
+            "filterLanguageRegex": ".*",
+            "decorations": [
+                {
+                    "color": "#ffcc00",
+                    "backgroundColor": "#333300",
+                    "fontWeight": "bold",
+                    "borderRadius": "4px"
+                }
+            ]
+        },
+        // "( )": {
+        //     // "filterFileRegex": ".*",
+        //     // "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+        //     // "filterFileRegex": "^(?!.*CHANGELOG\\.md$).*",
+        //     // "filterFileRegex": "^(?!node_modules/).*",
+        //     // "filterFileRegex": ".*\\.(js|php)$"
+        //     // "filterFileRegex": "^tasks/.*",
+        //     "filterFileRegex": "^MyTask\\.txt$",
+        //     // "filterFileRegex": "^(MyTask\\.txt|Note\\.txt)$",
+        //     // "filterFileRegex": "^(?!.*\\.(log|json)$).*",
+        //     // "filterLanguageRegex": ".*",
+        //     "filterLanguageRegex": "^plaintext$",
+        //     // "filterLanguageRegex": "^(python|javascript|typescript|php)$",
+        //     "decorations": [
+        //         {
+        //             "backgroundColor": "#eeeeee00",
+        //         }
+        //     ]
+        // }
+    },
+    
+    "highlight.decorations": {   
+        "rangeBehavior": 3
+    },
+
+}
