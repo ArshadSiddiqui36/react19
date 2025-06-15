@@ -1,0 +1,257 @@
+
+
+
+
+
+
+
+
+
+
+=================| Scrolling Behavour |=================
+
+
+import { useState, useEffect } from "react";
+
+const sections = ["educationSection", "featuredPortfolios", "workExperience", "blogs", "testimonials", "accomplishment"];
+
+export default function App({ publicData }) {
+  const [activeTab, setActiveTab] = useState("");
+  const [activeText, setActiveText] = useState(null);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      sections.forEach((section, index) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const { top, height } = element.getBoundingClientRect();
+          if (top >= -height / 2 && top <= window.innerHeight / 2) {
+            setActiveTab(index);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToElement = (id, index) => {
+    const el = document.getElementById(`${id}`);
+    el?.scrollIntoView({
+      behavior: "smooth",
+    });
+    setTimeout(() => {
+      setActiveTab(index);
+    }, 1000);
+  };
+
+  const handleShowMore = (i) => {
+    if (i === activeText) {
+      setActiveText(null);
+    } else {
+      setActiveText(i);
+    }
+  };
+
+  const navBarData = [
+    {
+      title: "Education",
+      action: "educationSection",
+    },
+    {
+      title: "Projects",
+      action: "featuredPortfolios",
+    },
+    {
+      title: "Work Experience",
+      action: "workExperience",
+    },
+    {
+      title: "Blog",
+      action: "blogs",
+    },
+    {
+      title: "Testimonials",
+      action: "testimonials",
+    },
+    {
+      title: "Accomplishments",
+      action: "accomplishment",
+    },
+  ];
+
+  return (
+    <div>
+      {/* Navigation Tabs */}
+      <nav className="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-center gap-5">
+        <ul className="flex gap-5">
+          {navBarData.map((res, index) => (
+            <li
+              key={index}
+              className={`px-4 py-2 cursor-pointer ${activeTab === index ? "border-b-2 border-blue-500 font-bold" : ""}`}
+              onClick={() => scrollToElement(res.action, index)}
+            >
+              {res.title}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Sections */}
+      <div className="mt-16">
+        {navBarData.map((res, index) => (
+          <Section key={index} id={res.action} bgColor="bg-gray-200">
+            <h2 className="text-2xl">{res.title}</h2>
+          </Section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Section({ id, bgColor, children }) {
+  return (
+    <section id={id} className={`h-screen flex items-center justify-center ${bgColor}`}>
+      {children}
+    </section>
+  );
+}
+====================================================
+=====================| Improved |===============================
+
+import { useState, useEffect } from "react";
+
+const sections = ["educationSection", "featuredPortfolios", "workExperience", "blogs", "testimonials", "accomplishment"];
+
+export default function App({ publicData }) {
+  const [activeTab, setActiveTab] = useState(0);
+  const [activeText, setActiveText] = useState(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let closestSectionIndex = 0;
+      let minDistance = Number.MAX_VALUE;
+      
+      sections.forEach((section, index) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const { top } = element.getBoundingClientRect();
+          const distance = Math.abs(top);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSectionIndex = index;
+          }
+        }
+      });
+
+      setActiveTab(closestSectionIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToElement = (id, index) => {
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({
+        top: el.offsetTop - 60,
+        behavior: "smooth",
+      });
+      setActiveTab(index);
+    }
+  };
+
+  const handleShowMore = (i) => {
+    setActiveText(i === activeText ? null : i);
+  };
+
+  const navBarData = [
+    { title: "Education", action: "educationSection" },
+    { title: "Projects", action: "featuredPortfolios" },
+    { title: "Work Experience", action: "workExperience" },
+    { title: "Blog", action: "blogs" },
+    { title: "Testimonials", action: "testimonials" },
+    { title: "Accomplishments", action: "accomplishment" },
+  ];
+
+  return (
+    <div>
+      {/* Navigation Tabs */}
+      <nav className="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-center gap-5 z-10">
+        <ul className="flex gap-5">
+          {navBarData.map((res, index) => (
+            <li
+              key={index}
+              className={`px-4 py-2 cursor-pointer transition-all duration-300 ${
+                activeTab === index ? "border-b-2 border-blue-500 font-bold" : "opacity-70 hover:opacity-100"
+              }`}
+              onClick={() => scrollToElement(res.action, index)}
+            >
+              {res.title}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Sections */}
+      <div className="mt-16">
+        {navBarData.map((res, index) => (
+          <Section key={index} id={res.action} bgColor="bg-gray-200">
+            <h2 className="text-2xl font-semibold">{res.title}</h2>
+          </Section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Section({ id, bgColor, children }) {
+  return (
+    <section id={id} className={`h-screen flex items-center justify-center ${bgColor}`}>
+      {children}
+    </section>
+  );
+}
+===================================================
+
+Student Portfolio
+===================================================
+// ===========| Scrolling |============
+// Added ===========
+const sections = ["educationSection", "featuredPortfolios", "workExperience", "blogs", "testimonials", "accomplishment"];
+
+useEffect(() => {
+  const handleScroll = () => {
+    sections.forEach((section, index) => {
+      const element = document.getElementById(section);
+      if (element) {
+        console.log("Console##############################################################");
+        const { top, height } = element.getBoundingClientRect();
+        if (top >= -height / 2 && top <= window.innerHeight / 2) {
+          setActiveTab(index);
+        }
+      }
+    });
+  };
+  
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+// End ==============
+  const scrollToElement = (id, index) => {
+    const el = document.getElementById(`${id}`);
+    el?.scrollIntoView({
+      behavior: "smooth",
+    });
+    setTimeout(() => {
+      setActiveTab(index);
+    }, 1000);
+    //
+    console.log(el, "element", index);
+  };
+  const [activeTab, setActiveTab] = useState("");
+  const [activeText, setActiveText] = useState(null);
+  const [showMore, setShowMore] = useState(false);
+========================================================

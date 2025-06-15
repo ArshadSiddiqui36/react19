@@ -9,6 +9,12 @@
 > git pull -u origin master
 > git clone <url>
 
+> git commit -a -m "Your commit message here"
+> git push
+
+> git commit -a -m "Your commit message here"
+> git push
+
 ====================| Git Config Commands (Author identity) |====================
 > git config --global user.email "you@example.com"
 > git config --global user.name "Your Name"
@@ -32,6 +38,12 @@
 ====================| Create a new branch |====================
 1.To create a new branch (but not switch to it), use:
 > git branch new-branch-name
+
+====================| Switch to Another Branch |====================
+1.To switch to an existing branch:
+> git checkout branch_name
+* Or, using the newer syntax:
+> git switch branch_name
 
 ====================| Delete a branch |====================
 1.To delete a branch that you no longer need (make sure you’re not on the branch you want to delete), use:
@@ -57,10 +69,52 @@
 3.To set the upstream for your new branch (so that git push works without specifying the branch name), run:
 > git push --set-upstream origin new-branch-name
 
+====================| If You Have Uncommitted Changes |====================
+1.If you have uncommitted changes that you want to keep, you can stash them before switching:
+> git stash
+
+2.Then switch branches and apply the stash later with:
+> git stash pop
+
+====================| If the Branch Doesn’t Exist Locally |====================
+1.If the branch exists remotely but not locally, fetch it first:
+> git fetch origin
+> git checkout branch_name  # or: git switch branch_name
+
+====================| If You Want to Create and Switch to a New Branch |====================
+1.Use this command:
+> git checkout -b new_branch_name
+* Or:
+> git switch -c new_branch_name
+
+====================| Ensure the Branch Exists |====================
+1.Check existing branches
+> git branch --list
+
+2.If the branch isn’t listed, check remote branches with:
+> git branch -r
+
+3.If the branch exists remotely but not locally, you can fetch it using:
+git fetch origin
+git checkout branch_name  # or: git switch branch_name
+
+====================| If You Have Uncommitted Changes |====================
+1.If Git prevents you from switching due to uncommitted changes, either commit them:
+> git add .
+git commit -m "Saving progress before switching branches"
+
+* Or stash them:
+> git stash
+
+2.Then switch branches and restore them with:
+> git stash pop
+
+
 
 
 
 
 ====================| Title |====================
+
 
 
