@@ -10,6 +10,7 @@
 > git clone <url>
 
 > git commit -a -m "Your commit message here"
+> git commit -am "Your commit message here"
 > git push
 
 ====================| Git Config Commands (Author identity) |====================
